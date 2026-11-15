@@ -20,8 +20,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <Link to="/" className="font-heading text-xl font-extrabold text-primary" onClick={() => setOpen(false)}>
-          Cook for <span className="text-highlight">Peace</span>
+        <Link to="/" className="shrink-0" onClick={() => setOpen(false)}>
+          <img src="/brand/cfp-logo.png" alt="Cook for Peace Festival" width={1000} height={532} className="h-11 w-auto lg:h-[52px]" />
         </Link>
         <nav aria-label="Main" className="hidden lg:block">
           <ul className="flex gap-1">
