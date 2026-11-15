@@ -24,6 +24,7 @@ export const links = {
   sponsorFormUrl: "",
   contactFormUrl: "",
   newsletterFormUrl: "",
+  cookingTeamFormUrl: "",
   privacyNoticeUrl: "",
 };
 
@@ -38,3 +39,14 @@ export const contact = {
   phone: "",
   email: "",
 };
+
+export type ProgrammeItem = { time: string; title: string; description?: string };
+export type Person = { name: string; role: string; photo?: string; bio?: string };
+
+export const programme: ProgrammeItem[] = [];
+export const guests: Person[] = [];
+export const team: Person[] = [];
+export const vision = "";
+export const mission = "";
+export const objectives: string[] = [];
+export const volunteerRoles: string[] = [];
