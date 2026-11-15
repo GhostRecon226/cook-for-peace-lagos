@@ -59,11 +59,11 @@ export type FestivalVideo = { title: string; youtubeId: string };
 export type NewsItem = { title: string; date: string; summary: string; body?: string };
 export type Faq = { q: string; a: string };
 
-export const sponsors: Sponsor[] = [{"name": "DUMMY TEST SPONSOR", "logo": "data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"640\" height=\"480\"%3E%3Crect width=\"640\" height=\"480\" fill=\"lightgreen\"/%3E%3Ctext x=\"50\" y=\"220\" font-size=\"32\"%3EDUMMY TEST IMAGE%3C/text%3E%3C/svg%3E", "url": "https://example.com", "tier": "DUMMY TEST TIER"}];
-export const donation: Donation = {"bankName": "DUMMY TEST BANK", "accountName": "DUMMY TEST ACCOUNT", "accountNumber": "0000000000", "note": "DUMMY TEST ONLY - DO NOT TRANSFER"};
-export const gallery: GalleryPhoto[] = [{"src": "data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"640\" height=\"480\"%3E%3Crect width=\"640\" height=\"480\" fill=\"lightgreen\"/%3E%3Ctext x=\"50\" y=\"220\" font-size=\"32\"%3EDUMMY TEST IMAGE%3C/text%3E%3C/svg%3E", "alt": "Dummy photo one", "caption": "DUMMY TEST PHOTO ONE", "year": 2024}, {"src": "data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"640\" height=\"480\"%3E%3Crect width=\"640\" height=\"480\" fill=\"lightgreen\"/%3E%3Ctext x=\"50\" y=\"220\" font-size=\"32\"%3EDUMMY TEST IMAGE%3C/text%3E%3C/svg%3E", "alt": "Dummy photo two", "caption": "DUMMY TEST PHOTO TWO", "year": 2025}];
+export const sponsors: Sponsor[] = [];
+export const donation: Donation = { bankName: "", accountName: "", accountNumber: "" };
+export const gallery: GalleryPhoto[] = [];
 export const videos: FestivalVideo[] = [];
-export const news: NewsItem[] = [{"title": "DUMMY OLD NEWS", "date": "2024-01-01", "summary": "DUMMY OLD SUMMARY"}, {"title": "DUMMY NEW NEWS", "date": "2025-01-01", "summary": "DUMMY NEW SUMMARY", "body": "DUMMY EXPANDED BODY"}];
+export const news: NewsItem[] = [];
 export const faqs: Faq[] = [
   { q: "What is Cook for Peace?", a: "A holiday food festival that brings people together to celebrate while promoting unity, communal peace and social development." },
   { q: "When and where is Festival 3.0?", a: "Friday, 18 December 2026, 9:00 AM to 5:00 PM at The Stable, Union Bank Sports Complex, Bode Thomas Street, Surulere, Lagos." },
