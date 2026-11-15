@@ -11,6 +11,6 @@
 - [x] Verify five pages at 390px and 1280px, contrast pairs, metadata omissions and tests.
 
 # Official logo files
-- [ ] Add the three supplied files, header/footer logos and desktop Home logo.
-- [ ] Set official favicon and conditional sharing metadata; document siteUrl requirement.
-- [ ] Verify three pages at 360px, 390px and 1280px, asset responses and tests.
+- [x] Add the three supplied files, header/footer logos and desktop Home logo.
+- [x] Set official favicon and conditional sharing metadata; document siteUrl requirement.
+- [x] Verify three pages at 360px, 390px and 1280px, asset responses and tests.
