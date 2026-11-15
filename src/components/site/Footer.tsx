@@ -43,7 +43,7 @@ export function Footer() {
                     className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/15 hover:bg-primary-foreground/25"><Icon className="h-5 w-5" /></a>
                 ) : (
                   <span title="Link coming soon" aria-label={`${label} (coming soon)`} role="img"
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/10 opacity-70"><Icon className="h-5 w-5" /></span>
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/15 opacity-90"><Icon className="h-5 w-5" /></span>
                 )}
               </li>
             ))}
