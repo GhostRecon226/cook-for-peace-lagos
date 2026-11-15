@@ -28,3 +28,5 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- All event facts and external form/social URLs live in src/config/site.ts; CTAs use ExternalButton, which disables itself when a URL is empty — keeps links editable in one place.
