@@ -1,3 +1,4 @@
+import { pageUrlMetadata } from "@/lib/site-metadata";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 export const Route = createFileRoute("/privacy")({
@@ -8,10 +9,10 @@ export const Route = createFileRoute("/privacy")({
       { property: "og:title", content: "Privacy notice — Cook for Peace Festival 3.0" },
       { property: "og:description", content: "Privacy notice for Cook for Peace Festival registration. The notice will be published before registration opens." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://cook-for-peace-lagos.lovable.app/privacy" },
+      ...pageUrlMetadata("/privacy").meta,
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://cook-for-peace-lagos.lovable.app/privacy" }],
+    links: pageUrlMetadata("/privacy").links,
     
   }),
   component: Page,

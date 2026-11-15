@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Twitter, Youtube, Mail, Phone } from "lucide-react";
 import { contact, event, links, social } from "@/config/site";
 import { navItems } from "./Header";
+import { TriBar } from "./TriBar";
 
 const socials = [
   { href: social.facebook, label: "Facebook", Icon: Facebook },
@@ -13,7 +14,7 @@ const socials = [
 export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="divider-wave-top" aria-hidden="true" />
+      <TriBar />
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-3">
         <div>
           <p className="font-heading text-xl font-extrabold">Cook for Peace</p>

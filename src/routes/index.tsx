@@ -1,3 +1,5 @@
+import { TriBar } from "@/components/site/TriBar";
+import { pageUrlMetadata } from "@/lib/site-metadata";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   CalendarDays, Clock, MapPin, Ticket, Users, HandHelping, Handshake, Mail, ArrowRight,
@@ -49,10 +51,10 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: desc },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://cook-for-peace-lagos.lovable.app/" },
+      ...pageUrlMetadata("/").meta,
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://cook-for-peace-lagos.lovable.app/" }],
+    links: pageUrlMetadata("/").links,
     scripts: [{ type: "application/ld+json", children: JSON.stringify(eventLd) }],
   }),
   component: Home,
@@ -88,7 +90,7 @@ function Home() {
             <ExternalButton href={links.volunteerFormUrl} variant="light">Volunteer</ExternalButton>
           </div>
         </div>
-        <div className="divider-scallop" aria-hidden="true" />
+        <TriBar />
       </section>
 
       {/* Quick facts */}

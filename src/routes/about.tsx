@@ -1,3 +1,4 @@
+import { pageUrlMetadata } from "@/lib/site-metadata";
 import { createFileRoute } from "@tanstack/react-router";
 import { MapPin } from "lucide-react";
 import { event, links, mission, objectives, team, vision } from "@/config/site";
@@ -17,10 +18,10 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About — Cook for Peace Festival" },
       { property: "og:description", content: "The story of Cook for Peace, an annual holiday food festival promoting unity and communal peace in Orile Iganmu, Coker-Aguda LCDA and Surulere, Lagos." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://cook-for-peace-lagos.lovable.app/about" },
+      ...pageUrlMetadata("/about").meta,
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://cook-for-peace-lagos.lovable.app/about" }],
+    links: pageUrlMetadata("/about").links,
   }),
   component: About,
 });

@@ -1,3 +1,4 @@
+import { pageUrlMetadata } from "@/lib/site-metadata";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeading } from "@/components/site/SectionHeading";
@@ -15,10 +16,10 @@ export const Route = createFileRoute("/support-us")({
       { property: "og:title", content: "Support Us — Cook for Peace Festival 3.0" },
       { property: "og:description", content: "Support Cook for Peace through funding, food and drinks, equipment or media coverage. Enquire about sponsoring or partnering." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://cook-for-peace-lagos.lovable.app/support-us" },
+      ...pageUrlMetadata("/support-us").meta,
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://cook-for-peace-lagos.lovable.app/support-us" }],
+    links: pageUrlMetadata("/support-us").links,
     
   }),
   component: Page,

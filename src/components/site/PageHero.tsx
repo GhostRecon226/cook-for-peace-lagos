@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { TriBar } from "./TriBar";
 export function PageHero({ title, intro, children }: { title: string; intro: string; children?: ReactNode }) {
   return (
     <section className="bg-hero text-primary-foreground">
@@ -7,7 +8,7 @@ export function PageHero({ title, intro, children }: { title: string; intro: str
         <p className="mt-3 max-w-2xl text-lg">{intro}</p>
         {children}
       </div>
-      <div className="divider-scallop" aria-hidden="true" />
+      <TriBar />
     </section>
   );
 }

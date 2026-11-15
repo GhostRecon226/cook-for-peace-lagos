@@ -57,6 +57,9 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
+  --color-logo-green: var(--brand-green);
+  --color-logo-red: var(--brand-red);
+  --color-logo-orange: var(--brand-orange);
   --color-accent-strong: var(--accent-strong);
   --color-highlight: var(--highlight);
   --color-highlight-foreground: var(--highlight-foreground);
@@ -78,14 +81,15 @@
 }
 
 :root {
-  /* Brand palette (swap to logo colours here) */
-  --brand-green: oklch(0.51 0.12 155);      /* #1B7F4B */
-  --brand-orange: oklch(0.77 0.165 70);     /* #F59E0B */
-  --brand-orange-strong: oklch(0.6 0.15 55);
-  --brand-cream: oklch(0.985 0.02 85);      /* #FFF8EC */
-  --brand-red: oklch(0.57 0.19 33);         /* #D9381E */
-  --brand-ink: oklch(0.28 0.03 265);        /* #1F2937 */
-
+  /* Official logo colours; accessible derived roles below. */
+  --brand-green: oklch(0.635720001 0.163696818 152.994369046); /* #00A658 */
+  --brand-orange: oklch(0.750576849 0.142933686 66.547378331); /* #EA9A3B */
+  --brand-red: oklch(0.606307071 0.210851536 27.402355337); /* #E53732 */
+  --brand-ink: oklch(0.177637772 0.000000007 89.875562840); /* #111111 */
+  --brand-green-strong: oklch(0.478043592 0.122474670 153.234855482); /* #00703A */
+  --brand-red-strong: oklch(0.501019438 0.181132501 27.594867936); /* #B42320 */
+  --brand-orange-strong: oklch(0.480629117 0.111878796 56.137810255); /* #8C4A0C */
+  --brand-cream: oklch(0.985 0.02 85);
   --radius: 1rem;
   --background: var(--brand-cream);
   --foreground: var(--brand-ink);
@@ -93,7 +97,7 @@
   --card-foreground: var(--brand-ink);
   --popover: oklch(1 0 0);
   --popover-foreground: var(--brand-ink);
-  --primary: var(--brand-green);
+  --primary: var(--brand-green-strong);
   --primary-foreground: oklch(0.99 0.01 85);
   --secondary: oklch(0.95 0.04 150);
   --secondary-foreground: var(--brand-ink);
@@ -102,9 +106,9 @@
   --accent: var(--brand-orange);
   --accent-foreground: var(--brand-ink);
   --accent-strong: var(--brand-orange-strong);
-  --highlight: var(--brand-red);
+  --highlight: var(--brand-red-strong);
   --highlight-foreground: oklch(0.99 0.01 85);
-  --destructive: var(--brand-red);
+  --destructive: var(--brand-red-strong);
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(0.9 0.03 80);
   --input: oklch(0.9 0.03 80);
@@ -123,10 +127,8 @@
   --sidebar-border: var(--border);
   --sidebar-ring: var(--ring);
 
-  --gradient-hero: radial-gradient(circle at 15% 20%, color-mix(in oklab, var(--accent) 55%, transparent) 0, transparent 45%),
-    radial-gradient(circle at 85% 10%, color-mix(in oklab, var(--highlight) 40%, transparent) 0, transparent 40%),
-    linear-gradient(160deg, var(--primary), color-mix(in oklab, var(--primary) 70%, black));
-  --gradient-cta: linear-gradient(120deg, var(--highlight), var(--accent-strong));
+  --gradient-hero: linear-gradient(160deg, var(--primary), color-mix(in oklab, var(--primary) 65%, var(--brand-ink)));
+  --gradient-cta: linear-gradient(120deg, var(--brand-red-strong), var(--brand-orange-strong));
   --shadow-soft: 0 10px 30px -12px color-mix(in oklab, var(--primary) 35%, transparent);
 }
 
@@ -153,18 +155,6 @@ html { scroll-padding-top: 5rem; }
 @utility bg-hero { background: var(--gradient-hero); }
 @utility bg-cta { background: var(--gradient-cta); }
 
-/* Playful scalloped divider */
-@utility divider-scallop {
-  height: 24px;
-  background: radial-gradient(circle at 12px 0, transparent 11px, var(--background) 12px) repeat-x;
-  background-size: 24px 24px;
-}
-@utility divider-wave-top {
-  height: 20px;
-  background: radial-gradient(circle at 10px 20px, var(--primary) 10px, transparent 11px) repeat-x;
-  background-size: 20px 20px;
-  margin-top: -20px;
-}
 @utility divider-dots {
   height: 8px;
   background: radial-gradient(circle, var(--accent) 3px, transparent 4px) repeat-x center;

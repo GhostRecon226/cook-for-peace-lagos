@@ -1,3 +1,4 @@
+import { pageUrlMetadata } from "@/lib/site-metadata";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeading } from "@/components/site/SectionHeading";
@@ -14,10 +15,10 @@ export const Route = createFileRoute("/faq")({
       { property: "og:title", content: "Frequently asked questions — Cook for Peace Festival 3.0" },
       { property: "og:description", content: "Answers about Cook for Peace Festival 3.0, free entry, registration, volunteering and supporting the festival." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://cook-for-peace-lagos.lovable.app/faq" },
+      ...pageUrlMetadata("/faq").meta,
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://cook-for-peace-lagos.lovable.app/faq" }],
+    links: pageUrlMetadata("/faq").links,
     scripts: [{ type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }) }],
   }),
   component: Page,
