@@ -1,12 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  CalendarDays, Clock, MapPin, Ticket, Users, ChefHat, HandHeart, Mic, Music, Gamepad2, Trophy,
-  HandHelping, Handshake, Mail, Navigation, ArrowRight,
+  CalendarDays, Clock, MapPin, Ticket, Users, HandHelping, Handshake, Mail, ArrowRight,
 } from "lucide-react";
 import { event, links } from "@/config/site";
 import { ExternalButton } from "@/components/site/ExternalButton";
 import { Countdown } from "@/components/site/Countdown";
 import { Reveal } from "@/components/site/Reveal";
+import { SectionHeading } from "@/components/site/SectionHeading";
+import { ActivityCards } from "@/components/site/ActivityCards";
+import { VenueBlock } from "@/components/site/VenueBlock";
+import { CtaBanner } from "@/components/site/CtaBanner";
 
 const title = "Cook for Peace Festival 3.0 — 18 Dec 2026, Surulere, Lagos";
 const desc = "Free community food festival in Lagos promoting unity and peace. Cooking, food sharing, lectures, music, games and awards. Register now.";
@@ -62,23 +65,6 @@ const facts = [
   { Icon: Users, label: "Expected", value: "5,000+" },
 ];
 
-const expect = [
-  { Icon: ChefHat, title: "Cooking", text: "Pots on fire, recipes shared across cultures." },
-  { Icon: HandHeart, title: "Food sharing", text: "Everyone eats. Plates passed from hand to hand." },
-  { Icon: Mic, title: "Lectures & panel", text: "Conversations on unity, peace and community." },
-  { Icon: Music, title: "Music", text: "Sounds that get the whole crowd moving." },
-  { Icon: Gamepad2, title: "Games", text: "Fun for families, friends and neighbours." },
-  { Icon: Trophy, title: "Awards", text: "Celebrating people who build peace." },
-];
-
-function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
-  return (
-    <div className="mb-8">
-      <p className="font-heading text-sm font-bold uppercase tracking-widest text-highlight">{eyebrow}</p>
-      <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">{title}</h2>
-    </div>
-  );
-}
 
 function Home() {
   return (
@@ -136,21 +122,7 @@ function Home() {
       {/* What to expect */}
       <section className="mx-auto max-w-6xl px-4 py-14">
         <Reveal><SectionHeading eyebrow="On the day" title="What to expect" /></Reveal>
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {expect.map(({ Icon, title, text }, i) => (
-            <li key={title}>
-              <Reveal className="h-full">
-                <div className="h-full rounded-3xl bg-card p-6 shadow-soft">
-                  <span className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl ${["bg-primary text-primary-foreground","bg-accent text-accent-foreground","bg-highlight text-highlight-foreground"][i % 3]}`}>
-                    <Icon className="h-6 w-6" aria-hidden />
-                  </span>
-                  <h3 className="mt-4 text-xl font-bold">{title}</h3>
-                  <p className="mt-1 text-muted-foreground">{text}</p>
-                </div>
-              </Reveal>
-            </li>
-          ))}
-        </ul>
+        <ActivityCards />
       </section>
 
       {/* Get involved */}
@@ -159,16 +131,19 @@ function Home() {
           <Reveal><SectionHeading eyebrow="Join in" title="Get involved" /></Reveal>
           <div className="grid gap-4 md:grid-cols-3">
             {[
-              { Icon: Ticket, title: "Attend", text: "Entry is free. Register to secure your spot.", label: "Register", href: links.registerFormUrl },
-              { Icon: HandHelping, title: "Volunteer", text: "Lend a hand and help the day run smoothly.", label: "Volunteer", href: links.volunteerFormUrl },
-              { Icon: Handshake, title: "Sponsor or partner", text: "Work with us to grow peace in our communities.", label: "Partner with us", href: links.sponsorFormUrl },
-            ].map(({ Icon, title, text, label, href }) => (
+              { Icon: Ticket, title: "Attend", text: "Entry is free. Register to secure your spot.", label: "Register", href: links.registerFormUrl, hash: "attend" },
+              { Icon: HandHelping, title: "Volunteer", text: "Lend a hand and help the day run smoothly.", label: "Volunteer", href: links.volunteerFormUrl, hash: "volunteer" },
+              { Icon: Handshake, title: "Sponsor or partner", text: "Work with us to grow peace in our communities.", label: "Partner with us", href: links.sponsorFormUrl, hash: "sponsor" },
+            ].map(({ Icon, title, text, label, href, hash }) => (
               <Reveal key={title} className="h-full">
                 <div className="flex h-full flex-col rounded-3xl bg-card p-6 shadow-soft">
                   <Icon className="h-8 w-8 text-primary" aria-hidden />
                   <h3 className="mt-3 text-xl font-bold">{title}</h3>
                   <p className="mt-1 flex-1 text-muted-foreground">{text}</p>
-                  <div className="mt-5"><ExternalButton href={href}>{label}</ExternalButton></div>
+                  <div className="mt-5 flex flex-wrap items-center gap-4">
+                    <ExternalButton href={href}>{label}</ExternalButton>
+                    <Link to="/get-involved" hash={hash} className="font-heading text-sm font-semibold text-primary underline-offset-4 hover:underline">Learn more<span className="sr-only"> about {title.toLowerCase()}</span></Link>
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -176,30 +151,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Venue */}
-      <section className="mx-auto max-w-6xl px-4 py-14">
-        <Reveal><SectionHeading eyebrow="Venue" title="Find us in Surulere" /></Reveal>
-        <div className="grid gap-6 overflow-hidden rounded-3xl bg-card shadow-soft md:grid-cols-2">
-          <div className="p-8">
-            <address className="not-italic">
-              <p className="font-heading text-xl font-bold">{event.venueName}</p>
-              <p className="mt-1 text-muted-foreground">{event.venueAddress}</p>
-            </address>
-            <p className="mt-4">{event.dateLabel}<br />{event.timeLabel}</p>
-            <a href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(event.mapQuery)}`}
-              target="_blank" rel="noopener noreferrer"
-              className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-full bg-primary px-6 py-3 font-heading text-sm font-semibold text-primary-foreground hover:bg-primary/90">
-              <Navigation className="h-4 w-4" aria-hidden /> Get directions
-            </a>
-          </div>
-          <iframe
-            title="Map of Union Bank Sports Complex, Surulere"
-            src={`https://www.google.com/maps?q=${encodeURIComponent(event.mapQuery)}&output=embed`}
-            loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-            className="h-72 w-full border-0 md:h-full md:min-h-80"
-          />
-        </div>
-      </section>
+      <VenueBlock />
 
       {/* Sponsors */}
       <section aria-labelledby="sponsors-h" className="mx-auto max-w-6xl px-4 py-10">
@@ -229,16 +181,9 @@ function Home() {
         </Reveal>
       </section>
 
-      {/* Final CTA */}
-      <section className="px-4 pb-16 pt-6">
-        <Reveal className="mx-auto max-w-6xl">
-          <div className="rounded-3xl bg-cta p-10 text-center text-highlight-foreground sm:p-16">
-            <h2 className="text-3xl font-extrabold sm:text-5xl">Join us on 18 December</h2>
-            <p className="mx-auto mt-3 max-w-xl text-lg">Free entry. Good food. Great people. Register to be part of it.</p>
-            <div className="mt-8 flex justify-center"><ExternalButton href={links.registerFormUrl} variant="light">Register Now</ExternalButton></div>
-          </div>
-        </Reveal>
-      </section>
+      <CtaBanner title="Join us on 18 December" text="Free entry. Good food. Great people. Register to be part of it.">
+        <ExternalButton href={links.registerFormUrl} variant="light">Register Now</ExternalButton>
+      </CtaBanner>
     </>
   );
 }
