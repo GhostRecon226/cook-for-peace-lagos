@@ -2,13 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   CalendarDays, Clock, MapPin, Ticket, Users, HandHelping, Handshake, Mail, ArrowRight,
 } from "lucide-react";
-import { event, links } from "@/config/site";
+import { event, links, sponsors } from "@/config/site";
 import { ExternalButton } from "@/components/site/ExternalButton";
 import { Countdown } from "@/components/site/Countdown";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { ActivityCards } from "@/components/site/ActivityCards";
 import { VenueBlock } from "@/components/site/VenueBlock";
+import { SponsorWall } from "@/components/site/SponsorWall";
 import { CtaBanner } from "@/components/site/CtaBanner";
 
 const title = "Cook for Peace Festival 3.0 — 18 Dec 2026, Surulere, Lagos";
@@ -48,10 +49,10 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: desc },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://cook-for-peace-lagos.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://cook-for-peace-lagos.lovable.app/" }],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(eventLd) }],
   }),
   component: Home,
@@ -156,13 +157,7 @@ function Home() {
       {/* Sponsors */}
       <section aria-labelledby="sponsors-h" className="mx-auto max-w-6xl px-4 py-10">
         <h2 id="sponsors-h" className="text-center font-heading text-sm font-bold uppercase tracking-widest text-muted-foreground">Our sponsors & partners</h2>
-        <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {[1, 2, 3, 4].map((n) => (
-            <li key={n} className="flex h-20 items-center justify-center rounded-2xl border-2 border-dashed border-border bg-card text-center text-xs text-muted-foreground">
-              Sponsor logos coming soon
-            </li>
-          ))}
-        </ul>
+        <div className="mt-6"><SponsorWall items={sponsors} home /></div>
       </section>
 
       {/* Newsletter */}

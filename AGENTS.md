@@ -31,3 +31,6 @@ use the editor.
 
 - All event facts and external form/social URLs live in src/config/site.ts; CTAs use ExternalButton, which disables itself when a URL is empty — keeps links editable in one place.
 - Shared page sections live in src/components/site (PageHero, SectionHeading, CtaBanner, VenueBlock, EmptyState, Timeline, PeopleGrid); list content from config renders an EmptyState when empty. Reveal keeps content visible by default and only hides below-fold items once JS runs.
+
+- SponsorWall, DonationCard, GalleryGrid, FaqList and NewsList take typed configuration data as props so empty and filled states share the same rendering path.
+- Gallery dialogs restore focus to the originating photo button and support arrow-key navigation; privacy has its own route as the fallback for an unset external notice URL.

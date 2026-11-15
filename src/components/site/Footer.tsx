@@ -56,7 +56,7 @@ export function Footer() {
           {links.privacyNoticeUrl ? (
             <a href={links.privacyNoticeUrl} target="_blank" rel="noopener noreferrer" className="underline">Privacy notice</a>
           ) : (
-            <span title="Link coming soon">Privacy notice (coming soon)</span>
+            <Link to="/privacy" className="underline">Privacy notice</Link>
           )}
         </div>
       </div>
