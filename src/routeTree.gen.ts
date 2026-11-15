@@ -17,6 +17,7 @@ import { Route as FestivalRouteImport } from './routes/festival'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as GetInvolvedRouteImport } from './routes/get-involved'
 import { Route as NewsRouteImport } from './routes/news'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as SupportUsRouteImport } from './routes/support-us'
 
 const IndexRoute = IndexRouteImport.update({
@@ -59,6 +60,11 @@ const NewsRoute = NewsRouteImport.update({
   path: '/news',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SupportUsRoute = SupportUsRouteImport.update({
   id: '/support-us',
   path: '/support-us',
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/gallery': typeof GalleryRoute
   '/get-involved': typeof GetInvolvedRoute
   '/news': typeof NewsRoute
+  '/privacy': typeof PrivacyRoute
   '/support-us': typeof SupportUsRoute
 }
 export interface FileRoutesByTo {
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/gallery': typeof GalleryRoute
   '/get-involved': typeof GetInvolvedRoute
   '/news': typeof NewsRoute
+  '/privacy': typeof PrivacyRoute
   '/support-us': typeof SupportUsRoute
 }
 export interface FileRoutesById {
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/gallery': typeof GalleryRoute
   '/get-involved': typeof GetInvolvedRoute
   '/news': typeof NewsRoute
+  '/privacy': typeof PrivacyRoute
   '/support-us': typeof SupportUsRoute
 }
 export interface FileRouteTypes {
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/get-involved'
     | '/news'
+    | '/privacy'
     | '/support-us'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/get-involved'
     | '/news'
+    | '/privacy'
     | '/support-us'
   id:
     | '__root__'
@@ -132,6 +143,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/get-involved'
     | '/news'
+    | '/privacy'
     | '/support-us'
   fileRoutesById: FileRoutesById
 }
@@ -144,6 +156,7 @@ export interface RootRouteChildren {
   GalleryRoute: typeof GalleryRoute
   GetInvolvedRoute: typeof GetInvolvedRoute
   NewsRoute: typeof NewsRoute
+  PrivacyRoute: typeof PrivacyRoute
   SupportUsRoute: typeof SupportUsRoute
 }
 
@@ -205,6 +218,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/support-us': {
       id: '/support-us'
       path: '/support-us'
@@ -224,6 +244,7 @@ const rootRouteChildren: RootRouteChildren = {
   GalleryRoute: GalleryRoute,
   GetInvolvedRoute: GetInvolvedRoute,
   NewsRoute: NewsRoute,
+  PrivacyRoute: PrivacyRoute,
   SupportUsRoute: SupportUsRoute,
 }
 export const routeTree = rootRouteImport
