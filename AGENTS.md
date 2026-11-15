@@ -36,3 +36,5 @@ use the editor.
 - Gallery dialogs restore focus to the originating photo button and support arrow-key navigation; privacy has its own route as the fallback for an unset external notice URL.
 - Set siteUrl in the shared configuration once the custom domain is connected; pageUrlMetadata emits canonical and og:url only when that setting is nonempty, so unconfirmed addresses never reach page metadata.
 - Reuse TriBar for decorative hero/footer accents; its colours come from theme tokens so the motif remains consistent.
+- Official brand files are served directly from public/brand and referenced by /brand/ URLs with explicit image dimensions, preserving the supplied assets and preventing layout shift.
+- Share previews appear once siteUrl is set; pageUrlMetadata adds the official share image only with a configured address, keeping sharing and canonical URLs consistent.

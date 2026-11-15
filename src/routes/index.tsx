@@ -74,7 +74,8 @@ function Home() {
     <>
       {/* Hero */}
       <section className="bg-hero text-primary-foreground">
-        <div className="mx-auto max-w-6xl px-4 pb-16 pt-12 sm:pt-20">
+        <div className="mx-auto max-w-6xl px-4 pb-16 pt-12 sm:pt-20 lg:grid lg:grid-cols-[minmax(0,1fr)_300px] lg:items-center lg:gap-8">
+          <div>
           <p className="inline-block rounded-full bg-accent px-4 py-1 font-heading text-xs font-bold uppercase tracking-widest text-accent-foreground">
             {event.edition}
           </p>
@@ -88,6 +89,10 @@ function Home() {
           <div className="mt-8 flex flex-wrap gap-3">
             <ExternalButton href={links.registerFormUrl} variant="accent">Register Now</ExternalButton>
             <ExternalButton href={links.volunteerFormUrl} variant="light">Volunteer</ExternalButton>
+          </div>
+          </div>
+          <div className="hidden rounded-lg bg-background p-6 lg:block">
+            <img src="/brand/cfp-logo.png" alt="Cook for Peace Festival" width={1000} height={532} className="h-auto w-full" />
           </div>
         </div>
         <TriBar />
