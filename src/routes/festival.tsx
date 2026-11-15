@@ -1,3 +1,4 @@
+import { pageUrlMetadata } from "@/lib/site-metadata";
 import { createFileRoute } from "@tanstack/react-router";
 import { CalendarDays, Clock, MapPin, Ticket, Users, ChefHat } from "lucide-react";
 import { event, guests, links, programme } from "@/config/site";
@@ -21,10 +22,10 @@ export const Route = createFileRoute("/festival")({
       { property: "og:title", content: "The Festival — Cook for Peace Festival 3.0, 18 Dec 2026" },
       { property: "og:description", content: "Cook for Peace Festival 3.0 on 18 December 2026 at The Stable, Union Bank Sports Complex, Surulere. Free entry: cooking, food sharing, lectures, panel, music, games and awards." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://cook-for-peace-lagos.lovable.app/festival" },
+      ...pageUrlMetadata("/festival").meta,
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://cook-for-peace-lagos.lovable.app/festival" }],
+    links: pageUrlMetadata("/festival").links,
   }),
   component: Festival,
 });

@@ -1,3 +1,4 @@
+import { pageUrlMetadata } from "@/lib/site-metadata";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeading } from "@/components/site/SectionHeading";
@@ -13,10 +14,10 @@ export const Route = createFileRoute("/news")({
       { property: "og:title", content: "News and announcements — Cook for Peace Festival 3.0" },
       { property: "og:description", content: "News and announcements from Cook for Peace Festival. Join the newsletter for festival updates." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://cook-for-peace-lagos.lovable.app/news" },
+      ...pageUrlMetadata("/news").meta,
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://cook-for-peace-lagos.lovable.app/news" }],
+    links: pageUrlMetadata("/news").links,
     
   }),
   component: Page,
