@@ -5,9 +5,9 @@ export function Reveal({ children, className = "" }: { children: ReactNode; clas
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (!("IntersectionObserver" in window)) { el.dataset.shown = "true"; return; }
+    if (!("IntersectionObserver" in window)) { el.setAttribute("data-shown", "true"); return; }
     const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { el.dataset.shown = "true"; io.disconnect(); }
+      if (e?.isIntersecting) { el.setAttribute("data-shown", "true"); io.disconnect(); }
     }, { threshold: 0.12 });
     io.observe(el);
     return () => io.disconnect();
