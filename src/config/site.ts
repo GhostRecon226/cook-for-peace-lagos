@@ -1,3 +1,5 @@
+export const siteUrl: string = "";
+
 export const event = {
   name: "Cook for Peace Festival 3.0",
   shortName: "Cook for Peace",
