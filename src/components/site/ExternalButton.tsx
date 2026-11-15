@@ -12,6 +12,7 @@ const styles: Record<Variant, string> = {
 export function ExternalButton({
   href, children, variant = "primary", className,
 }: { href: string; children: ReactNode; variant?: Variant; className?: string }) {
+  const shape = "inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-3 font-heading text-sm font-semibold transition-colors";
   const base = cn(
     "inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-3 font-heading text-sm font-semibold transition-colors",
     styles[variant], className,
@@ -20,7 +21,7 @@ export function ExternalButton({
     return (
       <span className="group relative inline-flex">
         <button type="button" disabled aria-disabled="true" title="Link coming soon"
-          aria-describedby={undefined} className={cn(base, "cursor-not-allowed opacity-60")}>
+          aria-describedby={undefined} className={cn(shape, className, "cursor-not-allowed border-2 border-dashed border-muted-foreground/50 bg-muted text-muted-foreground hover:bg-muted")}>
           {children}
           <span className="sr-only"> (link coming soon)</span>
         </button>
