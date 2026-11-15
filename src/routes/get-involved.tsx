@@ -14,10 +14,10 @@ export const Route = createFileRoute("/get-involved")({
       { property: "og:title", content: "Get Involved — Cook for Peace Festival 3.0" },
       { property: "og:description", content: "Attend for free, volunteer, join a cooking team, or sponsor and partner with Cook for Peace Festival 3.0 in Surulere, Lagos." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/get-involved" },
+      { property: "og:url", content: "https://cook-for-peace-lagos.lovable.app/get-involved" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/get-involved" }],
+    links: [{ rel: "canonical", href: "https://cook-for-peace-lagos.lovable.app/get-involved" }],
   }),
   component: GetInvolved,
 });

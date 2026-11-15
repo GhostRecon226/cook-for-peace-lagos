@@ -21,10 +21,10 @@ export const Route = createFileRoute("/festival")({
       { property: "og:title", content: "The Festival — Cook for Peace Festival 3.0, 18 Dec 2026" },
       { property: "og:description", content: "Cook for Peace Festival 3.0 on 18 December 2026 at The Stable, Union Bank Sports Complex, Surulere. Free entry: cooking, food sharing, lectures, panel, music, games and awards." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/festival" },
+      { property: "og:url", content: "https://cook-for-peace-lagos.lovable.app/festival" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/festival" }],
+    links: [{ rel: "canonical", href: "https://cook-for-peace-lagos.lovable.app/festival" }],
   }),
   component: Festival,
 });

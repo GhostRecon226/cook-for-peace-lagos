@@ -17,10 +17,10 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About — Cook for Peace Festival" },
       { property: "og:description", content: "The story of Cook for Peace, an annual holiday food festival promoting unity and communal peace in Orile Iganmu, Coker-Aguda LCDA and Surulere, Lagos." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: "https://cook-for-peace-lagos.lovable.app/about" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://cook-for-peace-lagos.lovable.app/about" }],
   }),
   component: About,
 });
