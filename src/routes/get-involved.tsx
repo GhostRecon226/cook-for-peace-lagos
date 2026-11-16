@@ -1,3 +1,5 @@
+import { RegistrationAction } from "@/components/site/RegistrationAction";
+import { ShareButton } from "@/components/site/ShareButton";
 import { pageUrlMetadata } from "@/lib/site-metadata";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Ticket, HandHelping, ChefHat, Handshake, ArrowRight } from "lucide-react";
@@ -45,8 +47,9 @@ function GetInvolved() {
     <>
       <PageHero title="Get involved" intro="There are many ways to be part of Cook for Peace Festival 3.0." />
       <div className="py-8">
+        <div className="mx-auto max-w-6xl px-4 pb-4"><ShareButton /></div>
         <Block id="attend" Icon={Ticket} title="Attend" tone="bg-primary text-primary-foreground"
-          action={<ExternalButton href={links.registerFormUrl}>Register</ExternalButton>}>
+          action={<RegistrationAction>Register</RegistrationAction>}>
           <p>Entry is free and the festival is open to the general public. Registration is required, so sign up early to secure your spot.</p>
         </Block>
         <Block id="volunteer" Icon={HandHelping} title="Volunteer" tone="bg-accent text-accent-foreground"

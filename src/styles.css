@@ -165,5 +165,12 @@ html { scroll-padding-top: 5rem; }
 .reveal[data-pending="true"] { opacity: 0; transform: translateY(18px); }
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal[data-pending="true"] { opacity: 1; transform: none; transition: none; }
-  * { animation: none !important; scroll-behavior: auto !important; }
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* A contrasting outer halo keeps keyboard focus visible on dark sections too. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px var(--background);
 }

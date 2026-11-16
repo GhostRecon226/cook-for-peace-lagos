@@ -1,3 +1,6 @@
+import { eventStructuredData } from "@/lib/event-metadata";
+import { AddToCalendar } from "@/components/site/AddToCalendar";
+import { ShareButton } from "@/components/site/ShareButton";
 import { pageUrlMetadata } from "@/lib/site-metadata";
 import { createFileRoute } from "@tanstack/react-router";
 import { CalendarDays, Clock, MapPin, Ticket, Users, ChefHat } from "lucide-react";
@@ -26,6 +29,7 @@ export const Route = createFileRoute("/festival")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: pageUrlMetadata("/festival").links,
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(eventStructuredData("/festival")) }],
   }),
   component: Festival,
 });
@@ -43,6 +47,7 @@ function Festival() {
       </PageHero>
 
       <section className="mx-auto max-w-6xl px-4 py-12">
+        <div className="mb-8 flex flex-wrap gap-4"><AddToCalendar /><ShareButton /></div>
         <SectionHeading eyebrow="Overview" title="Open to everyone" />
         <ul className="grid gap-4 sm:grid-cols-3">
           <li className="rounded-3xl bg-card p-6 shadow-soft"><Ticket className="h-7 w-7 text-primary" aria-hidden /><p className="mt-3 font-heading text-lg font-bold">Free entry</p><p className="text-muted-foreground">Registration required.</p></li>

@@ -1,3 +1,5 @@
+import { useEventState } from "@/lib/event-state";
+import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -16,12 +18,13 @@ export const navItems = [
 ] as const;
 
 export function Header() {
+  const state = useEventState();
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-3 py-3 sm:px-4">
         <Link to="/" className="shrink-0" onClick={() => setOpen(false)}>
-          <img src="/brand/cfp-logo.png" alt="Cook for Peace Festival" width={1000} height={532} className="h-11 w-auto lg:h-[52px]" />
+          <img src="/brand/cfp-logo.png" alt="Cook for Peace Festival" width={1000} height={532} className="h-[54px] w-auto lg:h-16" />
         </Link>
         <nav aria-label="Main" className="hidden lg:block">
           <ul className="flex gap-1">
@@ -34,12 +37,12 @@ export function Header() {
           </ul>
         </nav>
         <div className="flex items-center gap-2">
-          <ExternalButton href={links.registerFormUrl} variant="accent" className="px-4 py-2">Register</ExternalButton>
-          <button type="button" className="inline-flex h-11 w-11 items-center justify-center rounded-full hover:bg-secondary lg:hidden"
+          {state !== "ended" && <ExternalButton href={links.registerFormUrl} variant="accent" className="px-3 py-2">Register</ExternalButton>}
+          <Button type="button" variant="ghost" size="icon" className="h-11 w-11 shrink-0 rounded-full hover:bg-secondary lg:hidden"
             aria-expanded={open} aria-controls="mobile-nav" aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen(!open)}>
             {open ? <X /> : <Menu />}
-          </button>
+          </Button>
         </div>
       </div>
       {open && (

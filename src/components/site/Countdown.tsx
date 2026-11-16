@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { event } from "@/config/site";
 
-const target = new Date(event.startISO).getTime();
+import { useEventState } from "@/lib/event-state";
 
 export function Countdown() {
+  const state = useEventState();
+  const target = new Date(event.startISO).getTime();
   const [now, setNow] = useState<number | null>(null);
   useEffect(() => {
     setNow(Date.now());
@@ -17,8 +19,8 @@ export function Countdown() {
     ["Mins", Math.floor(diff / 6e4) % 60],
     ["Secs", Math.floor(diff / 1e3) % 60],
   ] as const;
-  if (now !== null && diff === 0) {
-    return <p className="font-heading text-lg font-bold">The festival is here!</p>;
+  if (state !== "upcoming") {
+    return <p role="status" className="font-heading text-lg font-bold">{state === "live" ? "Happening today" : "Thank you for celebrating with us."}</p>;
   }
   return (
     <div role="timer" aria-label="Countdown to the festival" className="grid max-w-md grid-cols-4 gap-2">
