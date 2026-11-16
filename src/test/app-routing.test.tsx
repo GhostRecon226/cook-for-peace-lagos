@@ -11,6 +11,8 @@ import { RouterProvider, createMemoryHistory } from "@tanstack/react-router";
 describe("App routing", () => {
   it("renders the branded 404 for an unknown address", async () => {
     const router = createRouter({ routeTree, history: createMemoryHistory({ initialEntries: ["/missing-page"] }), context: { queryClient: new QueryClient() } });
+    // Test the route boundary without mounting the document shell inside jsdom's div.
+    router.routeTree.update({ shellComponent: undefined, head: undefined });
     await router.load();
     render(<RouterProvider router={router} />);
     expect(await screen.findByRole("heading", { name: "This page isn’t on the menu" })).toBeInTheDocument();
