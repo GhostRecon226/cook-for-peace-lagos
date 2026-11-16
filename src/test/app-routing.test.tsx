@@ -11,7 +11,9 @@ import { RouterProvider, createMemoryHistory, createRootRoute, Outlet } from "@t
 describe("App routing", () => {
   it("renders the branded 404 for an unknown address", async () => {
     // Mount the actual root boundary without the document shell inside jsdom's div.
-    const testRoot = createRootRoute({ component: Outlet, notFoundComponent: routeTree.options.notFoundComponent });
+    const notFoundComponent = routeTree.options.notFoundComponent;
+    if (!notFoundComponent) throw new Error("Root 404 boundary is missing");
+    const testRoot = createRootRoute({ component: Outlet, notFoundComponent });
     const router = createRouter({ routeTree: testRoot, history: createMemoryHistory({ initialEntries: ["/missing-page"] }) });
     await router.load();
     render(<RouterProvider router={router} />);
