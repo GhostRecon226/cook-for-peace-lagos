@@ -9,6 +9,7 @@ import { CtaBanner } from "@/components/site/CtaBanner";
 import { SponsorWall } from "@/components/site/SponsorWall";
 import { DonationCard } from "@/components/site/DonationCard";
 export const Route = createFileRoute("/support-us")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Support Us — Cook for Peace Festival 3.0" },

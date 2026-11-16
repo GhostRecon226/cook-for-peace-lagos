@@ -10,6 +10,7 @@ import { ExternalButton } from "@/components/site/ExternalButton";
 import { Reveal } from "@/components/site/Reveal";
 
 export const Route = createFileRoute("/get-involved")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Get Involved — Cook for Peace Festival 3.0" },

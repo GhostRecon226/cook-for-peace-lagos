@@ -7,6 +7,7 @@ import { Mail } from "lucide-react";
 import { links, news } from "@/config/site";
 import { NewsList } from "@/components/site/NewsList";
 export const Route = createFileRoute("/news")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "News and announcements — Cook for Peace Festival 3.0" },

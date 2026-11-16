@@ -40,3 +40,5 @@ use the editor.
 - Share previews appear once siteUrl is set; pageUrlMetadata adds the official share image only with a configured address, keeping sharing and canonical URLs consistent.
 
 - Event state starts upcoming during SSR and updates only after mount; calendar, sharing and structured data use pure config-driven helpers so dates stay consistent and testable.
+
+- Sitemap URLs derive from the router with required staticData.sitemap decisions; use the confirmed public origin and omit lastmod without authoritative page timestamps to keep discovery accurate.

@@ -6,6 +6,7 @@ import { ExternalButton } from "@/components/site/ExternalButton";
 import { gallery, videos } from "@/config/site";
 import { GalleryGrid, VideoTile } from "@/components/site/GalleryGrid";
 export const Route = createFileRoute("/gallery")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Gallery — Cook for Peace Festival 3.0" },

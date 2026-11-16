@@ -18,6 +18,7 @@ import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as GetInvolvedRouteImport } from './routes/get-involved'
 import { Route as NewsRouteImport } from './routes/news'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SupportUsRouteImport } from './routes/support-us'
 
 const IndexRoute = IndexRouteImport.update({
@@ -65,6 +66,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SupportUsRoute = SupportUsRouteImport.update({
   id: '/support-us',
   path: '/support-us',
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/get-involved': typeof GetInvolvedRoute
   '/news': typeof NewsRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support-us': typeof SupportUsRoute
 }
 export interface FileRoutesByTo {
@@ -93,6 +100,7 @@ export interface FileRoutesByTo {
   '/get-involved': typeof GetInvolvedRoute
   '/news': typeof NewsRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support-us': typeof SupportUsRoute
 }
 export interface FileRoutesById {
@@ -106,6 +114,7 @@ export interface FileRoutesById {
   '/get-involved': typeof GetInvolvedRoute
   '/news': typeof NewsRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support-us': typeof SupportUsRoute
 }
 export interface FileRouteTypes {
@@ -120,6 +129,7 @@ export interface FileRouteTypes {
     | '/get-involved'
     | '/news'
     | '/privacy'
+    | '/sitemap.xml'
     | '/support-us'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -132,6 +142,7 @@ export interface FileRouteTypes {
     | '/get-involved'
     | '/news'
     | '/privacy'
+    | '/sitemap.xml'
     | '/support-us'
   id:
     | '__root__'
@@ -144,6 +155,7 @@ export interface FileRouteTypes {
     | '/get-involved'
     | '/news'
     | '/privacy'
+    | '/sitemap.xml'
     | '/support-us'
   fileRoutesById: FileRoutesById
 }
@@ -157,6 +169,7 @@ export interface RootRouteChildren {
   GetInvolvedRoute: typeof GetInvolvedRoute
   NewsRoute: typeof NewsRoute
   PrivacyRoute: typeof PrivacyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SupportUsRoute: typeof SupportUsRoute
 }
 
@@ -225,6 +238,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/support-us': {
       id: '/support-us'
       path: '/support-us'
@@ -245,6 +265,7 @@ const rootRouteChildren: RootRouteChildren = {
   GetInvolvedRoute: GetInvolvedRoute,
   NewsRoute: NewsRoute,
   PrivacyRoute: PrivacyRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SupportUsRoute: SupportUsRoute,
 }
 export const routeTree = rootRouteImport

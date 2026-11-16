@@ -22,6 +22,7 @@ const title = "Cook for Peace Festival 3.0 — 18 Dec 2026, Surulere, Lagos";
 const desc = "Free community food festival in Lagos promoting unity and peace. Cooking, food sharing, lectures, music, games and awards. Register now.";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },

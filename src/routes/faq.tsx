@@ -8,6 +8,7 @@ import { faqs } from "@/config/site";
 import { FaqList } from "@/components/site/FaqList";
 import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/faq")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Frequently asked questions — Cook for Peace Festival 3.0" },
