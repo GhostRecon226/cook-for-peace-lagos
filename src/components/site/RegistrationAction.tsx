@@ -10,5 +10,9 @@ export function ArchiveLinks() {
 export function RegistrationAction({ variant = "primary", children = "Register Now", notice = false }: { variant?: "primary" | "accent" | "light"; children?: React.ReactNode; notice?: boolean }) {
   const state = useEventState();
   if (state === "ended") return <ArchiveLinks />;
-  return <div><ExternalButton href={links.registerFormUrl} variant={variant}>{children}</ExternalButton>{notice && state === "upcoming" && !links.registerFormUrl && <p className="mt-3 text-sm">Registration opens soon. Check back here.</p>}</div>;
+  const button = <ExternalButton href={links.registerFormUrl} variant={variant}>{children}</ExternalButton>;
+  if (notice && state === "upcoming" && !links.registerFormUrl) {
+    return <>{button}<p className="mt-2 w-full text-sm">Registration opens soon. Check back here.</p></>;
+  }
+  return <div>{button}</div>;
 }

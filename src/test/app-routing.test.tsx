@@ -27,4 +27,13 @@ describe("App routing", () => {
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
+  it("hides the Home sponsors section while the sponsors list is empty", async () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() }, history: createMemoryHistory({ initialEntries: ["/"] }) });
+    await router.load();
+    render(<RouterProvider router={router} />);
+
+    expect(await screen.findByRole("heading", { name: "Cook for Peace Festival 3.0" })).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: "Our sponsors & partners" })).not.toBeInTheDocument();
+    expect(screen.queryByText("Sponsor logos coming soon")).not.toBeInTheDocument();
+  });
 });
