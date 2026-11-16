@@ -18,4 +18,4 @@ export const Route = createFileRoute("/privacy")({
   }),
   component: Page,
 });
-function Page() { return <><PageHero title="Privacy notice" intro="Our privacy notice will be published here before registration opens." /></>; }
+function Page() { return <><PageHero title="Privacy notice" intro="Our full privacy notice is coming soon. Registration and volunteer sign-ups are handled by TicketsDeck and Google Forms. For questions about your data, please contact us using the details on our Contact page." /></>; }
