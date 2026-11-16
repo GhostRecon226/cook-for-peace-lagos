@@ -37,7 +37,7 @@ export function Footer() {
             <li className="flex items-center gap-2"><Mail className="h-4 w-4" aria-hidden />
               {contact.email ? <a href={`mailto:${contact.email}`}>{contact.email}</a> : "Email coming soon"}</li>
             <li className="flex items-center gap-2"><Phone className="h-4 w-4" aria-hidden />
-              {contact.phone ? <a href={`tel:${contact.phone}`}>{contact.phone}</a> : "Phone coming soon"}</li>
+              {contact.phone ? <a href={`tel:${contact.phoneHref}`}>{contact.phone}</a> : "Phone coming soon"}</li>
           </ul>
           <ul className="mt-4 flex gap-2" aria-label="Social media">
             {socials.map(({ href, label, Icon }) => (
