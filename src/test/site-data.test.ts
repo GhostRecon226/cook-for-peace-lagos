@@ -9,7 +9,13 @@ describe("Confirmed festival data", () => {
     expect(donation.accountNumber).toBe("");
     expect(donation.note || "").toBe("");
   });
-  it("keeps photos empty after verification", () => { expect(gallery).toEqual([]); });
+  it("lists 12 gallery photos, each with alt text and a public/gallery src", () => {
+    expect(gallery).toHaveLength(12);
+    for (const photo of gallery) {
+      expect(photo.alt.length).toBeGreaterThan(0);
+      expect(photo.src).toMatch(/^\/gallery\/cfp-\d+\.jpg$/);
+    }
+  });
   it("keeps videos empty", () => { expect(videos).toEqual([]); });
   it("keeps announcements empty after verification", () => { expect(news).toEqual([]); });
   it("keeps WhatsApp unconfirmed", () => { expect(contact.whatsapp).toBe(""); });

@@ -64,7 +64,20 @@ export type Faq = { q: string; a: string };
 
 export const sponsors: Sponsor[] = [];
 export const donation: Donation = { bankName: "", accountName: "", accountNumber: "" };
-export const gallery: GalleryPhoto[] = [];
+export const gallery: GalleryPhoto[] = [
+  { src: "/gallery/cfp-6861.jpg", alt: "Serving tables and cooking pots, ready for the community meal", caption: "Serving tables and cooking pots, ready for the community meal" },
+  { src: "/gallery/cfp-6886.jpg", alt: "A chef serves a hot meal from the chafing dish", caption: "A chef serves a hot meal from the chafing dish" },
+  { src: "/gallery/cfp-6905.jpg", alt: "Organisers and partners gather behind the cooking pots", caption: "Organisers and partners gather behind the cooking pots" },
+  { src: "/gallery/cfp-6846.jpg", alt: "Guests and chefs address the crowd at the festival opening", caption: "Guests and chefs address the crowd at the festival opening" },
+  { src: "/gallery/cfp-6848.jpg", alt: "Residents and guests gather under the canopy", caption: "Residents and guests gather under the canopy" },
+  { src: "/gallery/cfp-6894.jpg", alt: "Volunteers hand out plates of food", caption: "Volunteers hand out plates of food" },
+  { src: "/gallery/cfp-6935.jpg", alt: "A volunteer checks a woman's blood pressure", caption: "A volunteer checks a woman's blood pressure" },
+  { src: "/gallery/cfp-6944.jpg", alt: "Free health checks at the festival", caption: "Free health checks at the festival" },
+  { src: "/gallery/cfp-6918.jpg", alt: "Guests play a game of ludo", caption: "Guests play a game of ludo" },
+  { src: "/gallery/cfp-6868.jpg", alt: "A speaker addresses the crowd", caption: "A speaker addresses the crowd" },
+  { src: "/gallery/cfp-6870.jpg", alt: "The festival backdrop with partner and sponsor logos", caption: "The festival backdrop with partner and sponsor logos" },
+  { src: "/gallery/cfp-6954.jpg", alt: "A chef serves food with tongs (black and white)", caption: "A chef serves food with tongs (black and white)" },
+];
 export const videos: FestivalVideo[] = [];
 export const news: NewsItem[] = [];
 export const faqs: Faq[] = [
