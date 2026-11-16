@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+import { SectionHeading } from "@/components/site/SectionHeading";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -15,29 +17,19 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 
-function NotFoundComponent() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
-        </div>
-      </div>
+export function NotFoundComponent() {
+  return <section className="mx-auto max-w-6xl px-4 py-16">
+    <SectionHeading eyebrow="404" title="This page isn’t on the menu" />
+    <p className="mb-6 text-muted-foreground">Let’s get you back to the festival.</p>
+    <div className="flex flex-wrap gap-3">
+      <Button asChild className="min-h-11"><Link to="/">Home</Link></Button>
+      <Button asChild variant="outline" className="min-h-11 text-primary"><Link to="/festival">Festival</Link></Button>
+      <Button asChild variant="outline" className="min-h-11 text-primary"><Link to="/get-involved">Get Involved</Link></Button>
     </div>
-  );
+  </section>;
 }
 
-function ErrorComponent({ error, reset }: ErrorComponentProps) {
+export function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -54,7 +46,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
           Something went wrong on our end. You can try refreshing or head back home.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
-          <button
+          <Button
             onClick={() => {
               router.invalidate();
               reset();
@@ -62,7 +54,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Try again
-          </button>
+          </Button>
           <a
             href="/"
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
@@ -128,9 +120,9 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-card focus:px-4 focus:py-2">Skip to content</a>
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-card focus:px-4 focus:py-2">Skip to main content</a>
       <Header />
-      <main id="main">
+      <main id="main-content" tabIndex={-1}>
         <Outlet />
       </main>
       <Footer />

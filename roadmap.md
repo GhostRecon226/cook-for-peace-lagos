@@ -14,3 +14,8 @@
 - [x] Add the three supplied files, header/footer logos and desktop Home logo.
 - [x] Set official favicon and conditional sharing metadata; document siteUrl requirement.
 - [x] Verify three pages at 360px, 390px and 1280px, asset responses and tests.
+
+# Phase 5
+- [x] Add event-aware actions, registration notice, calendar, sharing and Event metadata.
+- [x] Improve error pages, focus, skip link, image loading and header logo sizing.
+- [x] Run all 27 tests and typecheck; verify upcoming/live/ended pages at 360px, 390px and 1280px, plus calendar, sharing, keyboard access and SSR.

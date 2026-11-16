@@ -18,7 +18,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-3">
         <div>
           <Link to="/" className="mb-4 inline-block rounded-lg bg-background p-4">
-            <img src="/brand/cfp-logo.png" alt="Cook for Peace Festival" width={1000} height={532} className="h-auto w-48" />
+            <img src="/brand/cfp-logo.png" alt="Cook for Peace Festival" loading="lazy" decoding="async" width={1000} height={532} className="h-auto w-48" />
           </Link>
           <p className="font-heading text-xl font-extrabold">Cook for Peace</p>
           <p className="mt-3 text-sm opacity-90">{event.purpose}</p>

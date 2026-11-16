@@ -38,3 +38,5 @@ use the editor.
 - Reuse TriBar for decorative hero/footer accents; its colours come from theme tokens so the motif remains consistent.
 - Official brand files are served directly from public/brand and referenced by /brand/ URLs with explicit image dimensions, preserving the supplied assets and preventing layout shift.
 - Share previews appear once siteUrl is set; pageUrlMetadata adds the official share image only with a configured address, keeping sharing and canonical URLs consistent.
+
+- Event state starts upcoming during SSR and updates only after mount; calendar, sharing and structured data use pure config-driven helpers so dates stay consistent and testable.

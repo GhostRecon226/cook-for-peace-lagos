@@ -1,3 +1,7 @@
+import { eventStructuredData } from "@/lib/event-metadata";
+import { RegistrationAction } from "@/components/site/RegistrationAction";
+import { AddToCalendar } from "@/components/site/AddToCalendar";
+import { ShareButton } from "@/components/site/ShareButton";
 import { TriBar } from "@/components/site/TriBar";
 import { pageUrlMetadata } from "@/lib/site-metadata";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -17,32 +21,6 @@ import { CtaBanner } from "@/components/site/CtaBanner";
 const title = "Cook for Peace Festival 3.0 — 18 Dec 2026, Surulere, Lagos";
 const desc = "Free community food festival in Lagos promoting unity and peace. Cooking, food sharing, lectures, music, games and awards. Register now.";
 
-const eventLd = {
-  "@context": "https://schema.org",
-  "@type": "Event",
-  name: event.name,
-  description: event.purpose,
-  startDate: event.startISO,
-  endDate: event.endISO,
-  eventStatus: "https://schema.org/EventScheduled",
-  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-  isAccessibleForFree: true,
-  maximumAttendeeCapacity: 5000,
-  location: {
-    "@type": "Place",
-    name: event.venueName,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Union Bank Sports Complex, Bode Thomas Street",
-      addressLocality: "Surulere",
-      addressRegion: "Lagos",
-      addressCountry: "NG",
-    },
-  },
-  offers: { "@type": "Offer", price: "0", priceCurrency: "NGN", availability: "https://schema.org/InStock" },
-  organizer: { "@type": "Organization", name: "Cook for Peace Festival" },
-};
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -55,7 +33,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: pageUrlMetadata("/").links,
-    scripts: [{ type: "application/ld+json", children: JSON.stringify(eventLd) }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(eventStructuredData("/")) }],
   }),
   component: Home,
 });
@@ -82,12 +60,12 @@ function Home() {
           <h1 className="mt-5 text-4xl font-extrabold leading-tight sm:text-6xl">{event.name}</h1>
           <p className="mt-3 font-heading text-xl font-semibold sm:text-2xl">{event.tagline}</p>
           <ul className="mt-6 space-y-2 text-base">
-            <li className="flex items-center gap-2"><CalendarDays className="h-5 w-5" aria-hidden />{event.dateLabel} · {event.timeLabel}</li>
-            <li className="flex items-center gap-2"><MapPin className="h-5 w-5" aria-hidden />{event.venueName}, {event.venueAddress}</li>
+            <li className="flex items-center gap-2"><CalendarDays className="h-5 w-5 shrink-0" aria-hidden />{event.dateLabel} · {event.timeLabel}</li>
+            <li className="flex items-center gap-2"><MapPin className="h-5 w-5 shrink-0" aria-hidden />{event.venueName}, {event.venueAddress}</li>
           </ul>
           <div className="mt-8"><Countdown /></div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <ExternalButton href={links.registerFormUrl} variant="accent">Register Now</ExternalButton>
+            <RegistrationAction variant="accent" notice />
             <ExternalButton href={links.volunteerFormUrl} variant="light">Volunteer</ExternalButton>
           </div>
           </div>
@@ -110,6 +88,8 @@ function Home() {
           ))}
         </ul>
       </section>
+
+      <section className="mx-auto flex max-w-6xl flex-wrap gap-4 px-4 pb-6" aria-label="Calendar and sharing"><AddToCalendar /><ShareButton /></section>
 
       {/* About teaser */}
       <Reveal className="mx-auto max-w-6xl px-4 py-12">

@@ -8,7 +8,7 @@ export function PeopleGrid({ people, empty }: { people: Person[]; empty: string 
       {people.map((p) => (
         <li key={p.name} className="rounded-3xl bg-card p-6 text-center shadow-soft">
           {p.photo ? (
-            <img src={p.photo} alt={p.name} loading="lazy" width={112} height={112} className="mx-auto h-28 w-28 rounded-full object-cover" />
+            <img src={p.photo} alt={p.name} loading="lazy" decoding="async" width={112} height={112} className="mx-auto h-28 w-28 rounded-full object-cover" />
           ) : (
             <span className="mx-auto flex h-28 w-28 items-center justify-center rounded-full bg-secondary text-primary"><User className="h-10 w-10" aria-hidden /></span>
           )}
