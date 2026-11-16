@@ -13,6 +13,11 @@ describe("Confirmed festival data", () => {
   it("keeps videos empty", () => { expect(videos).toEqual([]); });
   it("keeps announcements empty after verification", () => { expect(news).toEqual([]); });
   it("keeps WhatsApp unconfirmed", () => { expect(contact.whatsapp).toBe(""); });
+  it("uses the confirmed phone display text and tel link", () => {
+    expect(contact.phone).toBe("0805 772 2794");
+    expect(contact.phoneHref).toBe("+2348057722794");
+  });
+  it("uses the confirmed email address", () => { expect(contact.email).toBe("Cookforpeacefestival@gmail.com"); });
   it("does not invent a schedule or people", () => {
     expect(programme).toEqual([]); expect(guests).toEqual([]); expect(team).toEqual([]);
   });

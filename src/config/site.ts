@@ -38,8 +38,9 @@ export const social = {
 };
 
 export const contact = {
-  phone: "",
-  email: "",
+  phone: "0805 772 2794",
+  phoneHref: "+2348057722794",
+  email: "Cookforpeacefestival@gmail.com",
   whatsapp: "",
 };
 

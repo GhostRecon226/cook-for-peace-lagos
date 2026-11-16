@@ -36,4 +36,25 @@ describe("App routing", () => {
     expect(screen.queryByRole("heading", { name: "Our sponsors & partners" })).not.toBeInTheDocument();
     expect(screen.queryByText("Sponsor logos coming soon")).not.toBeInTheDocument();
   });
+
+  it("links phone and email on the Contact page and footer, and keeps WhatsApp empty", async () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() }, history: createMemoryHistory({ initialEntries: ["/contact"] }) });
+    await router.load();
+    render(<RouterProvider router={router} />);
+
+    const phones = await screen.findAllByRole("link", { name: "0805 772 2794" });
+    expect(phones).toHaveLength(2);
+    for (const phone of phones) expect(phone).toHaveAttribute("href", "tel:+2348057722794");
+
+    const emails = await screen.findAllByRole("link", { name: "Cookforpeacefestival@gmail.com" });
+    expect(emails).toHaveLength(2);
+    for (const email of emails) expect(email).toHaveAttribute("href", "mailto:Cookforpeacefestival@gmail.com");
+
+    expect(screen.queryByText("Phone coming soon")).not.toBeInTheDocument();
+    expect(screen.queryByText("Email coming soon")).not.toBeInTheDocument();
+
+    const whatsapp = await screen.findByRole("heading", { name: "WhatsApp" });
+    expect(whatsapp.parentElement?.textContent).toContain("Coming soon");
+    expect(screen.queryByRole("link", { name: /wa\.me/ })).not.toBeInTheDocument();
+  });
 });
