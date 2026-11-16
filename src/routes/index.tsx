@@ -1,5 +1,5 @@
 import { eventStructuredData } from "@/lib/event-metadata";
-import { RegistrationAction } from "@/components/site/RegistrationAction";
+import { RegistrationAction, RegistrationNotice } from "@/components/site/RegistrationAction";
 import { AddToCalendar } from "@/components/site/AddToCalendar";
 import { ShareButton } from "@/components/site/ShareButton";
 import { TriBar } from "@/components/site/TriBar";
@@ -66,9 +66,10 @@ function Home() {
           </ul>
           <div className="mt-8"><Countdown /></div>
           <div className="mt-8 flex flex-wrap items-start gap-3">
-            <RegistrationAction variant="accent" notice />
+            <RegistrationAction variant="accent" />
             <ExternalButton href={links.volunteerFormUrl} variant="light">Volunteer</ExternalButton>
           </div>
+          <RegistrationNotice />
           </div>
           <div className="hidden rounded-lg bg-background p-6 lg:block">
             <img src="/brand/cfp-logo.png" alt="Cook for Peace Festival" width={1000} height={532} className="h-auto w-full" />
