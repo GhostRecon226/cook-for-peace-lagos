@@ -8,6 +8,7 @@ import { contact, links, social } from "@/config/site";
 import { VenueBlock } from "@/components/site/VenueBlock";
 import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/contact")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Contact — Cook for Peace Festival 3.0" },

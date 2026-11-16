@@ -18,6 +18,7 @@ import { ExternalButton } from "@/components/site/ExternalButton";
 import { Reveal } from "@/components/site/Reveal";
 
 export const Route = createFileRoute("/festival")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "The Festival — Cook for Peace Festival 3.0, 18 Dec 2026" },
