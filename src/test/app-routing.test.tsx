@@ -13,7 +13,7 @@ describe("App routing", () => {
     // Mount the actual root boundary without the document shell inside jsdom's div.
     const notFoundComponent = routeTree.options.notFoundComponent;
     if (!notFoundComponent) throw new Error("Root 404 boundary is missing");
-    const testRoot = createRootRoute({ component: Outlet, notFoundComponent });
+    const testRoot = createRootRoute({ staticData: { sitemap: false }, component: Outlet, notFoundComponent });
     const router = createRouter({ routeTree: testRoot, history: createMemoryHistory({ initialEntries: ["/missing-page"] }) });
     await router.load();
     render(<RouterProvider router={router} />);
