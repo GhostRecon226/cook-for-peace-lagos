@@ -1,5 +1,5 @@
 import { eventStructuredData } from "@/lib/event-metadata";
-import { RegistrationAction } from "@/components/site/RegistrationAction";
+import { RegistrationAction, RegistrationNotice } from "@/components/site/RegistrationAction";
 import { AddToCalendar } from "@/components/site/AddToCalendar";
 import { ShareButton } from "@/components/site/ShareButton";
 import { TriBar } from "@/components/site/TriBar";
@@ -65,10 +65,11 @@ function Home() {
             <li className="flex items-center gap-2"><MapPin className="h-5 w-5 shrink-0" aria-hidden />{event.venueName}, {event.venueAddress}</li>
           </ul>
           <div className="mt-8"><Countdown /></div>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <RegistrationAction variant="accent" notice />
+          <div className="mt-8 flex flex-wrap items-start gap-3">
+            <RegistrationAction variant="accent" />
             <ExternalButton href={links.volunteerFormUrl} variant="light">Volunteer</ExternalButton>
           </div>
+          <RegistrationNotice />
           </div>
           <div className="hidden rounded-lg bg-background p-6 lg:block">
             <img src="/brand/cfp-logo.png" alt="Cook for Peace Festival" width={1000} height={532} className="h-auto w-full" />
@@ -142,11 +143,13 @@ function Home() {
 
       <VenueBlock />
 
-      {/* Sponsors */}
-      <section aria-labelledby="sponsors-h" className="mx-auto max-w-6xl px-4 py-10">
-        <h2 id="sponsors-h" className="text-center font-heading text-sm font-bold uppercase tracking-widest text-muted-foreground">Our sponsors & partners</h2>
-        <div className="mt-6"><SponsorWall items={sponsors} home /></div>
-      </section>
+      {/* Sponsors — hidden entirely until the config lists sponsors */}
+      {sponsors.length > 0 && (
+        <section aria-labelledby="sponsors-h" className="mx-auto max-w-6xl px-4 py-10">
+          <h2 id="sponsors-h" className="text-center font-heading text-sm font-bold uppercase tracking-widest text-muted-foreground">Our sponsors & partners</h2>
+          <div className="mt-6"><SponsorWall items={sponsors} home /></div>
+        </section>
+      )}
 
       {/* Newsletter */}
       <section className="mx-auto max-w-6xl px-4 py-10">
