@@ -18,4 +18,4 @@
 # Phase 5
 - [x] Add event-aware actions, registration notice, calendar, sharing and Event metadata.
 - [x] Improve error pages, focus, skip link, image loading and header logo sizing.
-- [ ] Run tests and verify upcoming/ended pages at all requested widths.
+- [x] Run all 27 tests and typecheck; verify upcoming/live/ended pages at 360px, 390px and 1280px, plus calendar, sharing, keyboard access and SSR.
