@@ -21,8 +21,8 @@ export const event = {
 };
 
 export const links = {
-  registerFormUrl: "",
-  volunteerFormUrl: "",
+  registerFormUrl: "https://events.ticketsdeck.com/event/cookforpeacefestival",
+  volunteerFormUrl: "https://forms.gle/8nSFPARNWc73woQu5",
   sponsorFormUrl: "",
   contactFormUrl: "",
   newsletterFormUrl: "",
