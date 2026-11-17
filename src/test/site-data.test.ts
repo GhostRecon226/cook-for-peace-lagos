@@ -36,7 +36,11 @@ describe("Confirmed festival data", () => {
   });
   it("keeps videos empty", () => { expect(videos).toEqual([]); });
   it("keeps announcements empty after verification", () => { expect(news).toEqual([]); });
-  it("keeps WhatsApp unconfirmed", () => { expect(contact.whatsapp).toBe(""); });
+  it("uses the confirmed WhatsApp number and message", () => {
+    expect(contact.whatsapp).toBe("2348057722794");
+    expect(contact.whatsappMessage).toBe("Hello, I have a question about Cook for Peace Festival 3.0.");
+    expect(whatsappChatUrl()).toBe("https://wa.me/2348057722794?text=Hello%2C%20I%20have%20a%20question%20about%20Cook%20for%20Peace%20Festival%203.0.");
+  });
   it("uses the confirmed phone display text and tel link", () => {
     expect(contact.phone).toBe("0805 772 2794");
     expect(contact.phoneHref).toBe("+2348057722794");

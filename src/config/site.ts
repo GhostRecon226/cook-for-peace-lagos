@@ -41,7 +41,8 @@ export const contact = {
   phone: "0805 772 2794",
   phoneHref: "+2348057722794",
   email: "Cookforpeacefestival@gmail.com",
-  whatsapp: "",
+  whatsapp: "2348057722794",
+  whatsappMessage: "Hello, I have a question about Cook for Peace Festival 3.0.",
 };
 
 export type ProgrammeItem = { time: string; title: string; description?: string };

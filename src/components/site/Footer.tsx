@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Twitter, Youtube, Mail, Phone } from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MessageCircle } from "lucide-react";
 import { contact, event, links, social } from "@/config/site";
+import { whatsappChatUrl } from "@/lib/whatsapp";
 import { navItems } from "./Header";
 import { TriBar } from "./TriBar";
 
@@ -38,6 +39,8 @@ export function Footer() {
               {contact.email ? <a href={`mailto:${contact.email}`}>{contact.email}</a> : "Email coming soon"}</li>
             <li className="flex items-center gap-2"><Phone className="h-4 w-4" aria-hidden />
               {contact.phone ? <a href={`tel:${contact.phoneHref}`}>{contact.phone}</a> : "Phone coming soon"}</li>
+            <li className="flex items-center gap-2"><MessageCircle className="h-4 w-4" aria-hidden />
+              {contact.whatsapp ? <a href={whatsappChatUrl()} target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a> : "WhatsApp coming soon"}</li>
           </ul>
           <ul className="mt-4 flex gap-2" aria-label="Social media">
             {socials.map(({ href, label, Icon }) => (
