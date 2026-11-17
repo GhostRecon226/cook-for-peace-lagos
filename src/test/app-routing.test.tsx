@@ -80,7 +80,7 @@ describe("App routing", () => {
     }
   });
 
-  it("links phone and email on the Contact page and footer, and keeps WhatsApp empty", async () => {
+  it("links phone, email and WhatsApp on the Contact page and footer", async () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() }, history: createMemoryHistory({ initialEntries: ["/contact"] }) });
     await router.load();
     render(<RouterProvider router={router} />);
@@ -96,8 +96,13 @@ describe("App routing", () => {
     expect(screen.queryByText("Phone coming soon")).not.toBeInTheDocument();
     expect(screen.queryByText("Email coming soon")).not.toBeInTheDocument();
 
-    const whatsapp = await screen.findByRole("heading", { name: "WhatsApp" });
-    expect(whatsapp.parentElement?.textContent).toContain("Coming soon");
-    expect(screen.queryByRole("link", { name: /wa\.me/ })).not.toBeInTheDocument();
+    const whatsappLinks = await screen.findAllByRole("link", { name: "Chat on WhatsApp" });
+    expect(whatsappLinks).toHaveLength(2);
+    for (const link of whatsappLinks) {
+      expect(link).toHaveAttribute("href", "https://wa.me/2348057722794?text=Hello%2C%20I%20have%20a%20question%20about%20Cook%20for%20Peace%20Festival%203.0.");
+      expect(link).toHaveAttribute("target", "_blank");
+      expect(link).toHaveAttribute("rel", "noopener noreferrer");
+    }
+    expect(screen.queryByText("WhatsApp coming soon")).not.toBeInTheDocument();
   });
 });
