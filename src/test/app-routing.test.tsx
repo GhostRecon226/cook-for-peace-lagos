@@ -2,6 +2,7 @@ import { QueryClient } from "@tanstack/react-query";
 import { createRouter, rootRouteId } from "@tanstack/react-router";
 import { describe, expect, it } from "vitest";
 
+import { sponsors } from "@/config/site";
 import { routeTree } from "@/routeTree.gen";
 import { render, screen } from "@testing-library/react";
 import { RouterProvider, createMemoryHistory, createRootRoute, Outlet } from "@tanstack/react-router";
