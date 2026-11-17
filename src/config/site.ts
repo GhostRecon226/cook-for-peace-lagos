@@ -49,7 +49,14 @@ export type Person = { name: string; role: string; photo?: string; bio?: string 
 
 export const programme: ProgrammeItem[] = [];
 export const guests: Person[] = [];
-export const team: Person[] = [];
+export const team: Person[] = [
+  {
+    name: "Hadji Kwame Ahmed",
+    role: "Lead Volunteer, Cook for Peace Festival",
+    photo: "/team/hadji-kwame-ahmed.jpg",
+    bio: "Pan-African youth advocate and community development expert. Founder of Associates of Change Africa. JCI Top Ten Outstanding Young Persons of Nigeria 2023.",
+  },
+];
 export const vision = "";
 export const mission = "";
 export const objectives: string[] = [];
