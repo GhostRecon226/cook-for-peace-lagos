@@ -54,7 +54,7 @@ describe("App routing", () => {
       { name: "Evogue Consulting", url: "https://evogueconsulting.com/" },
     ];
     for (const { name, url } of backlinked) {
-      const link = screen.getAllByAltText(name)[0].closest("a");
+      const link = screen.getAllByAltText(name)[0]?.closest("a");
       expect(link).not.toBeNull();
       expect(link).toHaveAttribute("href", url);
       expect(link).toHaveAttribute("target", "_blank");
@@ -64,7 +64,7 @@ describe("App routing", () => {
     const unlinked = sponsors.filter((sponsor) => !sponsor.url);
     expect(unlinked).toHaveLength(10);
     for (const sponsor of unlinked) {
-      expect(screen.getAllByAltText(sponsor.name)[0].closest("a")).toBeNull();
+      expect(screen.getAllByAltText(sponsor.name)[0]?.closest("a")).toBeNull();
     }
   });
 
