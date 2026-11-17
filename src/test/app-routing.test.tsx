@@ -3,6 +3,7 @@ import { createRouter, rootRouteId } from "@tanstack/react-router";
 import { describe, expect, it } from "vitest";
 
 import { sponsors } from "@/config/site";
+import { whatsappChatUrl } from "@/lib/whatsapp";
 import { routeTree } from "@/routeTree.gen";
 import { render, screen } from "@testing-library/react";
 import { RouterProvider, createMemoryHistory, createRootRoute, Outlet } from "@tanstack/react-router";
@@ -97,12 +98,30 @@ describe("App routing", () => {
     expect(screen.queryByText("Email coming soon")).not.toBeInTheDocument();
 
     const whatsappLinks = await screen.findAllByRole("link", { name: "Chat on WhatsApp" });
-    expect(whatsappLinks).toHaveLength(2);
+    // Contact card, footer row and the floating button.
+    expect(whatsappLinks).toHaveLength(3);
     for (const link of whatsappLinks) {
       expect(link).toHaveAttribute("href", "https://wa.me/2348057722794?text=Hello%2C%20I%20have%20a%20question%20about%20Cook%20for%20Peace%20Festival%203.0.");
       expect(link).toHaveAttribute("target", "_blank");
       expect(link).toHaveAttribute("rel", "noopener noreferrer");
     }
     expect(screen.queryByText("WhatsApp coming soon")).not.toBeInTheDocument();
+  });
+
+  it("shows the floating WhatsApp button on every page", async () => {
+    for (const path of ["/", "/contact"]) {
+      const router = createRouter({ routeTree, context: { queryClient: new QueryClient() }, history: createMemoryHistory({ initialEntries: [path] }) });
+      await router.load();
+      const { unmount } = render(<RouterProvider router={router} />);
+
+      const chatLinks = await screen.findAllByRole("link", { name: "Chat on WhatsApp" });
+      const float = chatLinks.find((link) => link.className.includes("fixed"));
+      if (!float) throw new Error(`Floating WhatsApp button is missing on ${path}`);
+      expect(float).toHaveAttribute("href", whatsappChatUrl());
+      expect(float).toHaveAttribute("target", "_blank");
+      expect(float).toHaveAttribute("rel", "noopener noreferrer");
+      expect(float).toHaveAttribute("aria-label", "Chat on WhatsApp");
+      unmount();
+    }
   });
 });

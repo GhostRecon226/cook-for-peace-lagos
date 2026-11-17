@@ -58,7 +58,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-primary-foreground/20">
-        <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-2 px-4 py-4 text-xs opacity-90">
+        <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-2 px-4 pt-4 pb-24 text-xs opacity-90">
           <p>© 2026 Cook for Peace Festival</p>
           {links.privacyNoticeUrl ? (
             <a href={links.privacyNoticeUrl} target="_blank" rel="noopener noreferrer" className="underline">Privacy notice</a>

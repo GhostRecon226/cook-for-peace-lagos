@@ -42,3 +42,4 @@ use the editor.
 - Event state starts upcoming during SSR and updates only after mount; calendar, sharing and structured data use pure config-driven helpers so dates stay consistent and testable.
 
 - Sitemap URLs derive from the router with required staticData.sitemap decisions; use the confirmed public origin and omit lastmod without authoritative page timestamps to keep discovery accurate.
+- Site-wide overlays (e.g. the floating chat button) render once from the shared layout in src/routes/__root.tsx, stay below dialog z-index 50, and render nothing when their config value is empty.

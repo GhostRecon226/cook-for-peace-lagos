@@ -16,6 +16,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 
 export function NotFoundComponent() {
   return <section className="mx-auto max-w-6xl px-4 py-16">
@@ -127,6 +128,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <Footer />
+      <WhatsAppFloat />
     </QueryClientProvider>
   );
 }

@@ -22,3 +22,6 @@
 
 # SEO review
 - [x] Add the approved public sitemap and crawler reference; verify page coverage and tests.
+
+# Floating chat button
+- [x] Add a fixed WhatsApp chat button to the shared layout, with footer clearance, tokens and tests.
