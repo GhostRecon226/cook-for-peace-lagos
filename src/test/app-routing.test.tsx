@@ -28,7 +28,7 @@ describe("App routing", () => {
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
-  it("shows the Home sponsors section with all 12 sponsor logos", async () => {
+  it("shows the Home sponsors section with all 13 sponsor logos", async () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() }, history: createMemoryHistory({ initialEntries: ["/"] }) });
     await router.load();
     render(<RouterProvider router={router} />);
