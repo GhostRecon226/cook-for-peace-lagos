@@ -63,10 +63,10 @@ export type NewsItem = { title: string; date: string; summary: string; body?: st
 export type Faq = { q: string; a: string };
 
 export const sponsors: Sponsor[] = [
-  { name: "Nestlé", logo: "/sponsors/nestle.png" },
+  { name: "Nestlé", logo: "/sponsors/nestle.png", url: "https://www.nestle-cwa.com/" },
   { name: "Purelife Pharmacy", logo: "/sponsors/purelife-pharmacy.png" },
-  { name: "Ticketsdeck", logo: "/sponsors/ticketsdeck.png" },
-  { name: "Evogue Consulting", logo: "/sponsors/evogue-consulting.png" },
+  { name: "Ticketsdeck", logo: "/sponsors/ticketsdeck.png", url: "https://events.ticketsdeck.com/event/cookforpeacefestival" },
+  { name: "Evogue Consulting", logo: "/sponsors/evogue-consulting.png", url: "https://evogueconsulting.com/" },
   { name: "Coker/Aguda Local Council Development Area", logo: "/sponsors/coker-aguda-lcda.png" },
   { name: "Lagos Youth Mobilization", logo: "/sponsors/lagos-youth-mobilization.png" },
   { name: "Associates of Change Africa", logo: "/sponsors/associates-of-change-africa.png" },
