@@ -9,6 +9,18 @@ describe("Confirmed festival data", () => {
       expect(sponsor.logo).toMatch(/^\/sponsors\//);
     }
   });
+  it("gives backlinks to exactly three sponsors", () => {
+    const linked = sponsors.filter((sponsor) => Boolean(sponsor.url));
+    expect(linked.map((sponsor) => sponsor.name)).toEqual(["Nestlé", "Ticketsdeck", "Evogue Consulting"]);
+    expect(sponsors.find((sponsor) => sponsor.name === "Nestlé")?.url).toBe("https://www.nestle-cwa.com/");
+    expect(sponsors.find((sponsor) => sponsor.name === "Ticketsdeck")?.url).toBe("https://events.ticketsdeck.com/event/cookforpeacefestival");
+    expect(sponsors.find((sponsor) => sponsor.name === "Evogue Consulting")?.url).toBe("https://evogueconsulting.com/");
+    const unlinked = sponsors.filter((sponsor) => !sponsor.url);
+    expect(unlinked).toHaveLength(10);
+    for (const sponsor of unlinked) {
+      expect(sponsor.url).toBeUndefined();
+    }
+  });
   it("keeps unconfirmed bank details empty", () => {
     expect(donation.bankName).toBe("");
     expect(donation.accountName).toBe("");
