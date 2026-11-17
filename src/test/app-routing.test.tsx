@@ -27,14 +27,17 @@ describe("App routing", () => {
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
-  it("hides the Home sponsors section while the sponsors list is empty", async () => {
+  it("shows the Home sponsors section with all 12 sponsor logos", async () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() }, history: createMemoryHistory({ initialEntries: ["/"] }) });
     await router.load();
     render(<RouterProvider router={router} />);
 
     expect(await screen.findByRole("heading", { name: "Cook for Peace Festival 3.0" })).toBeInTheDocument();
-    expect(screen.queryByRole("heading", { name: "Our sponsors & partners" })).not.toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Our sponsors & partners" })).toBeInTheDocument();
     expect(screen.queryByText("Sponsor logos coming soon")).not.toBeInTheDocument();
+    for (const sponsor of sponsors) {
+      expect(screen.getAllByAltText(sponsor.name).length).toBeGreaterThan(0);
+    }
   });
 
   it("links phone and email on the Contact page and footer, and keeps WhatsApp empty", async () => {
