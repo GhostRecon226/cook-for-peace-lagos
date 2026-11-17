@@ -62,7 +62,20 @@ export type FestivalVideo = { title: string; youtubeId: string };
 export type NewsItem = { title: string; date: string; summary: string; body?: string };
 export type Faq = { q: string; a: string };
 
-export const sponsors: Sponsor[] = [];
+export const sponsors: Sponsor[] = [
+  { name: "Nestlé", logo: "/sponsors/nestle.png" },
+  { name: "Purelife Pharmacy", logo: "/sponsors/purelife-pharmacy.png" },
+  { name: "Ticketsdeck", logo: "/sponsors/ticketsdeck.png" },
+  { name: "Coker/Aguda Local Council Development Area", logo: "/sponsors/coker-aguda-lcda.png" },
+  { name: "Lagos Youth Mobilization", logo: "/sponsors/lagos-youth-mobilization.png" },
+  { name: "Associates of Change Africa", logo: "/sponsors/associates-of-change-africa.png" },
+  { name: "Moshood Ojora-Williams Foundation", logo: "/sponsors/moshood-ojora-williams-foundation.png" },
+  { name: "Don Climax Group", logo: "/sponsors/don-climax-group.png" },
+  { name: "Lagos & Beyond", logo: "/sponsors/lagos-and-beyond.png" },
+  { name: "Turret", logo: "/sponsors/turret.png" },
+  { name: "Steel World & Design Nig. Ent.", logo: "/sponsors/steel-world-design.png" },
+  { name: "Aurora Court Luxury Apartments", logo: "/sponsors/aurora-court.png" },
+];
 export const donation: Donation = { bankName: "", accountName: "", accountNumber: "" };
 export const gallery: GalleryPhoto[] = [
   { src: "/gallery/cfp-6861.jpg", alt: "Serving tables and cooking pots, ready for the community meal", caption: "Serving tables and cooking pots, ready for the community meal" },

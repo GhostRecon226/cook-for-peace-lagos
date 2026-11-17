@@ -2,7 +2,13 @@ import { describe, expect, it } from "vitest";
 import { contact, donation, event, faqs, gallery, guests, news, programme, sponsors, team, videos } from "@/config/site";
 
 describe("Confirmed festival data", () => {
-  it("keeps unconfirmed sponsors empty", () => { expect(sponsors).toEqual([]); });
+  it("lists 12 sponsors, each with a name and a /sponsors/ logo path", () => {
+    expect(sponsors).toHaveLength(12);
+    for (const sponsor of sponsors) {
+      expect(sponsor.name.length).toBeGreaterThan(0);
+      expect(sponsor.logo).toMatch(/^\/sponsors\//);
+    }
+  });
   it("keeps unconfirmed bank details empty", () => {
     expect(donation.bankName).toBe("");
     expect(donation.accountName).toBe("");
