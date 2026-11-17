@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { contact, donation, event, faqs, gallery, guests, news, programme, sponsors, team, videos } from "@/config/site";
+import { whatsappChatUrl } from "@/lib/whatsapp";
 
 describe("Confirmed festival data", () => {
   it("lists 13 sponsors, each with a name and a /sponsors/ logo path", () => {

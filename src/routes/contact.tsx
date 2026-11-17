@@ -5,6 +5,7 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 import { ExternalButton } from "@/components/site/ExternalButton";
 import { Mail, Phone, MessageCircle, Send, Share2, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import { contact, links, social } from "@/config/site";
+import { whatsappChatUrl } from "@/lib/whatsapp";
 import { VenueBlock } from "@/components/site/VenueBlock";
 import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/contact")({
