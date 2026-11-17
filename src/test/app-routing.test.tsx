@@ -41,6 +41,18 @@ describe("App routing", () => {
     }
   });
 
+  it("shows the team card on the About page", async () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() }, history: createMemoryHistory({ initialEntries: ["/about"] }) });
+    await router.load();
+    render(<RouterProvider router={router} />);
+
+    expect(await screen.findByRole("heading", { name: "Hadji Kwame Ahmed" })).toBeInTheDocument();
+    expect(screen.getByText("Lead Volunteer, Cook for Peace Festival")).toBeInTheDocument();
+    const photo = screen.getByAltText("Portrait of Hadji Kwame Ahmed");
+    expect(photo).toHaveAttribute("src", "/team/hadji-kwame-ahmed.jpg");
+    expect(screen.queryByText("Our organising team will be introduced here soon.")).not.toBeInTheDocument();
+  });
+
   it("wraps only the three backlinked sponsor logos in sponsored links", async () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() }, history: createMemoryHistory({ initialEntries: ["/"] }) });
     await router.load();

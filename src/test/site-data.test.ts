@@ -42,8 +42,19 @@ describe("Confirmed festival data", () => {
     expect(contact.phoneHref).toBe("+2348057722794");
   });
   it("uses the confirmed email address", () => { expect(contact.email).toBe("Cookforpeacefestival@gmail.com"); });
-  it("does not invent a schedule or people", () => {
-    expect(programme).toEqual([]); expect(guests).toEqual([]); expect(team).toEqual([]);
+  it("does not invent a schedule or guests", () => {
+    expect(programme).toEqual([]); expect(guests).toEqual([]);
+  });
+  it("lists exactly the one confirmed team member", () => {
+    expect(team).toEqual([
+      {
+        name: "Hadji Kwame Ahmed",
+        role: "Lead Volunteer, Cook for Peace Festival",
+        photo: "/team/hadji-kwame-ahmed.jpg",
+        bio: "Pan-African youth advocate and community development expert. Founder of Associates of Change Africa. JCI Top Ten Outstanding Young Persons of Nigeria 2023.",
+      },
+    ]);
+    expect(team[0]?.photo).toMatch(/^\/team\//);
   });
   it("includes only the nine requested FAQs", () => { expect(faqs).toHaveLength(9); });
   it("uses the confirmed festival opening date and Lagos time", () => { expect(event.startISO).toBe("2026-12-18T09:00:00+01:00"); });
