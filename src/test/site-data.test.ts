@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import { contact, donation, event, faqs, gallery, guests, news, programme, sponsors, team, videos } from "@/config/site";
 
 describe("Confirmed festival data", () => {
-  it("lists 12 sponsors, each with a name and a /sponsors/ logo path", () => {
-    expect(sponsors).toHaveLength(12);
+  it("lists 13 sponsors, each with a name and a /sponsors/ logo path", () => {
+    expect(sponsors).toHaveLength(13);
     for (const sponsor of sponsors) {
       expect(sponsor.name.length).toBeGreaterThan(0);
       expect(sponsor.logo).toMatch(/^\/sponsors\//);

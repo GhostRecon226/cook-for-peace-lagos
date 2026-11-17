@@ -75,6 +75,7 @@ export const sponsors: Sponsor[] = [
   { name: "Turret", logo: "/sponsors/turret.png" },
   { name: "Steel World & Design Nig. Ent.", logo: "/sponsors/steel-world-design.png" },
   { name: "Aurora Court Luxury Apartments", logo: "/sponsors/aurora-court.png" },
+  { name: "Evogue Consulting", logo: "/sponsors/evogue-consulting.png" },
 ];
 export const donation: Donation = { bankName: "", accountName: "", accountNumber: "" };
 export const gallery: GalleryPhoto[] = [
