@@ -41,6 +41,33 @@ describe("App routing", () => {
     }
   });
 
+  it("wraps only the three backlinked sponsor logos in sponsored links", async () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() }, history: createMemoryHistory({ initialEntries: ["/"] }) });
+    await router.load();
+    render(<RouterProvider router={router} />);
+
+    expect(await screen.findByRole("heading", { name: "Our sponsors & partners" })).toBeInTheDocument();
+
+    const backlinked = [
+      { name: "Nestlé", url: "https://www.nestle-cwa.com/" },
+      { name: "Ticketsdeck", url: "https://events.ticketsdeck.com/event/cookforpeacefestival" },
+      { name: "Evogue Consulting", url: "https://evogueconsulting.com/" },
+    ];
+    for (const { name, url } of backlinked) {
+      const link = screen.getAllByAltText(name)[0].closest("a");
+      expect(link).not.toBeNull();
+      expect(link).toHaveAttribute("href", url);
+      expect(link).toHaveAttribute("target", "_blank");
+      expect(link).toHaveAttribute("rel", "sponsored noopener");
+    }
+
+    const unlinked = sponsors.filter((sponsor) => !sponsor.url);
+    expect(unlinked).toHaveLength(10);
+    for (const sponsor of unlinked) {
+      expect(screen.getAllByAltText(sponsor.name)[0].closest("a")).toBeNull();
+    }
+  });
+
   it("links phone and email on the Contact page and footer, and keeps WhatsApp empty", async () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() }, history: createMemoryHistory({ initialEntries: ["/contact"] }) });
     await router.load();
