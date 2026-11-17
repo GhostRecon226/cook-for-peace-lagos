@@ -66,6 +66,7 @@ export const sponsors: Sponsor[] = [
   { name: "Nestlé", logo: "/sponsors/nestle.png" },
   { name: "Purelife Pharmacy", logo: "/sponsors/purelife-pharmacy.png" },
   { name: "Ticketsdeck", logo: "/sponsors/ticketsdeck.png" },
+  { name: "Evogue Consulting", logo: "/sponsors/evogue-consulting.png" },
   { name: "Coker/Aguda Local Council Development Area", logo: "/sponsors/coker-aguda-lcda.png" },
   { name: "Lagos Youth Mobilization", logo: "/sponsors/lagos-youth-mobilization.png" },
   { name: "Associates of Change Africa", logo: "/sponsors/associates-of-change-africa.png" },
@@ -75,7 +76,6 @@ export const sponsors: Sponsor[] = [
   { name: "Turret", logo: "/sponsors/turret.png" },
   { name: "Steel World & Design Nig. Ent.", logo: "/sponsors/steel-world-design.png" },
   { name: "Aurora Court Luxury Apartments", logo: "/sponsors/aurora-court.png" },
-  { name: "Evogue Consulting", logo: "/sponsors/evogue-consulting.png" },
 ];
 export const donation: Donation = { bankName: "", accountName: "", accountNumber: "" };
 export const gallery: GalleryPhoto[] = [
