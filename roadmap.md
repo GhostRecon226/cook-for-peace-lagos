@@ -35,3 +35,4 @@
 
 # Donation details
 - [ ] Bank details wired; account ownership confirmation pending from the client.
+- [x] Donation account holder statement added; written confirmation from the client still pending.

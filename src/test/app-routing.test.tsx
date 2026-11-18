@@ -176,5 +176,10 @@ describe("App routing", () => {
     expect(screen.getByText("Providus Bank")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Copy account number" })).toBeInTheDocument();
     expect(screen.queryByText("Donation details will be shared here soon.")).not.toBeInTheDocument();
+    // The account-holder statement sits under the Bank row and above the confirmation line.
+    const note = screen.getByText("Cook for Peace Festival is an initiative of Associates of change & soc. Dev.");
+    expect(note).toBeInTheDocument();
+    const confirmation = screen.getByText("Please confirm the account name above before you transfer.");
+    expect(note.compareDocumentPosition(confirmation) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
 });

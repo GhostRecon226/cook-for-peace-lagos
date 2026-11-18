@@ -91,7 +91,7 @@ export const sponsors: Sponsor[] = [
   { name: "Steel World & Design Nig. Ent.", logo: "/sponsors/steel-world-design.png" },
   { name: "Aurora Court Luxury Apartments", logo: "/sponsors/aurora-court.png" },
 ];
-export const donation: Donation = { bankName: "Providus Bank", accountName: "Associates of change & soc. Dev", accountNumber: "4308985940" };
+export const donation: Donation = { bankName: "Providus Bank", accountName: "Associates of change & soc. Dev", accountNumber: "4308985940", note: "Cook for Peace Festival is an initiative of Associates of change & soc. Dev." };
 export const gallery: GalleryPhoto[] = [
   { src: "/gallery/cfp-6861.jpg", alt: "Serving tables and cooking pots, ready for the community meal", caption: "Serving tables and cooking pots, ready for the community meal" },
   { src: "/gallery/cfp-6886.jpg", alt: "A chef serves a hot meal from the chafing dish", caption: "A chef serves a hot meal from the chafing dish" },
