@@ -29,3 +29,6 @@
 # Mission and Vision
 - [x] Publish the client-approved Mission and Vision text on the About page.
 - [ ] Objectives still pending client input.
+
+# Social accounts
+- [x] Wire Instagram and X; other socials pending client input.

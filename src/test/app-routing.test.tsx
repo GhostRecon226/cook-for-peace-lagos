@@ -135,4 +135,36 @@ describe("App routing", () => {
       unmount();
     }
   });
+
+  it("links Instagram and X on the Contact page and footer, and renders nothing for empty socials", async () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() }, history: createMemoryHistory({ initialEntries: ["/contact"] }) });
+    await router.load();
+    render(<RouterProvider router={router} />);
+
+    const wired = [
+      { name: "Cook for Peace Festival on Instagram", href: "https://www.instagram.com/cookforpeacefestival/" },
+      { name: "Cook for Peace Festival on X (Twitter)", href: "https://x.com/cook4peacefest" },
+    ];
+    for (const { name, href } of wired) {
+      // Once in the Contact card and once in the footer.
+      const links = await screen.findAllByRole("link", { name });
+      expect(links).toHaveLength(2);
+      for (const link of links) {
+        expect(link).toHaveAttribute("href", href);
+        expect(link).toHaveAttribute("target", "_blank");
+        expect(link).toHaveAttribute("rel", "noopener noreferrer");
+      }
+    }
+
+    // Handles are visible text on the Contact card.
+    expect(screen.getByText("@cookforpeacefestival")).toBeInTheDocument();
+    expect(screen.getByText("@cook4peacefest")).toBeInTheDocument();
+
+    // Facebook and YouTube have no URL, so they render nothing at all.
+    expect(screen.queryByText("Facebook: Coming soon")).not.toBeInTheDocument();
+    expect(screen.queryByText("YouTube: Coming soon")).not.toBeInTheDocument();
+    expect(screen.queryByTitle("Link coming soon")).not.toBeInTheDocument();
+    expect(screen.queryAllByLabelText("Facebook (coming soon)")).toHaveLength(0);
+    expect(screen.queryAllByLabelText("YouTube (coming soon)")).toHaveLength(0);
+  });
 });

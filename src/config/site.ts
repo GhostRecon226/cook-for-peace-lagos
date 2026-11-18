@@ -32,9 +32,15 @@ export const links = {
 
 export const social = {
   facebook: "",
-  instagram: "",
-  x: "",
+  instagram: "https://www.instagram.com/cookforpeacefestival/",
+  x: "https://x.com/cook4peacefest",
   youtube: "",
+};
+
+// Visible handle text for the accounts that have a URL.
+export const socialHandles = {
+  instagram: "cookforpeacefestival",
+  x: "cook4peacefest",
 };
 
 export const contact = {

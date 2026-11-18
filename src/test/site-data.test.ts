@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { contact, donation, event, faqs, gallery, guests, mission, news, objectives, programme, sponsors, team, vision, videos } from "@/config/site";
+import { contact, donation, event, faqs, gallery, guests, mission, news, objectives, programme, social, socialHandles, sponsors, team, vision, videos } from "@/config/site";
 import { whatsappChatUrl } from "@/lib/whatsapp";
 
 describe("Confirmed festival data", () => {
@@ -54,6 +54,14 @@ describe("Confirmed festival data", () => {
     expect(contact.phoneHref).toBe("+2348057722794");
   });
   it("uses the confirmed email address", () => { expect(contact.email).toBe("Cookforpeacefestival@gmail.com"); });
+  it("wires the approved Instagram and X links and leaves the other socials empty", () => {
+    expect(social.instagram).toBe("https://www.instagram.com/cookforpeacefestival/");
+    expect(social.x).toBe("https://x.com/cook4peacefest");
+    expect(social.facebook).toBe("");
+    expect(social.youtube).toBe("");
+    expect(socialHandles.instagram).toBe("cookforpeacefestival");
+    expect(socialHandles.x).toBe("cook4peacefest");
+  });
   it("does not invent a schedule or guests", () => {
     expect(programme).toEqual([]); expect(guests).toEqual([]);
   });

@@ -12,6 +12,9 @@ const socials = [
   { href: social.youtube, label: "YouTube", Icon: Youtube },
 ];
 
+// Only accounts with a URL are shown; empty ones render nothing.
+const activeSocials = socials.filter(({ href }) => href);
+
 export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
@@ -42,19 +45,16 @@ export function Footer() {
             <li className="flex items-center gap-2"><MessageCircle className="h-4 w-4" aria-hidden />
               {contact.whatsapp ? <a href={whatsappChatUrl()} target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a> : "WhatsApp coming soon"}</li>
           </ul>
-          <ul className="mt-4 flex gap-2" aria-label="Social media">
-            {socials.map(({ href, label, Icon }) => (
-              <li key={label}>
-                {href ? (
-                  <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
+          {activeSocials.length > 0 && (
+            <ul className="mt-4 flex gap-2" aria-label="Social media">
+              {activeSocials.map(({ href, label, Icon }) => (
+                <li key={label}>
+                  <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`Cook for Peace Festival on ${label}`}
                     className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/15 hover:bg-primary-foreground/25"><Icon className="h-5 w-5" /></a>
-                ) : (
-                  <span title="Link coming soon" aria-label={`${label} (coming soon)`} role="img"
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/15 opacity-90"><Icon className="h-5 w-5" /></span>
-                )}
-              </li>
-            ))}
-          </ul>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
       <div className="border-t border-primary-foreground/20">
