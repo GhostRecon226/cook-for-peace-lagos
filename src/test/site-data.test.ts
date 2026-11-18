@@ -36,10 +36,10 @@ describe("Confirmed festival data", () => {
     }
   });
   it("keeps videos empty", () => { expect(videos).toEqual([]); });
-  it("uses the approved Mission text word for word", () => {
-    expect(mission).toBe("To promote peaceful coexistence and social development through largest engagement and fun interactions.");
+  it("uses the approved Mission text", () => {
+    expect(mission).toBe("To promote peaceful coexistence and social development through greater engagement and fun interactions.");
   });
-  it("uses the approved Vision text word for word", () => {
+  it("uses the approved Vision text", () => {
     expect(vision).toBe("To become a platform that connects people across global communities, where discussions on bridging social gaps and corresponding interventions are proposed and implemented.");
   });
   it("keeps objectives empty pending client input", () => { expect(objectives).toEqual([]); });

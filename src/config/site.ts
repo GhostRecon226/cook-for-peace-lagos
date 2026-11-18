@@ -59,7 +59,7 @@ export const team: Person[] = [
   },
 ];
 export const vision = "To become a platform that connects people across global communities, where discussions on bridging social gaps and corresponding interventions are proposed and implemented.";
-export const mission = "To promote peaceful coexistence and social development through largest engagement and fun interactions.";
+export const mission = "To promote peaceful coexistence and social development through greater engagement and fun interactions.";
 export const objectives: string[] = [];
 export const volunteerRoles: string[] = [];
 

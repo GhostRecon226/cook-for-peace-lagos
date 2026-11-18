@@ -59,7 +59,7 @@ describe("App routing", () => {
     await router.load();
     render(<RouterProvider router={router} />);
 
-    expect(await screen.findByText("To promote peaceful coexistence and social development through largest engagement and fun interactions.")).toBeInTheDocument();
+    expect(await screen.findByText("To promote peaceful coexistence and social development through greater engagement and fun interactions.")).toBeInTheDocument();
     expect(screen.getByText("To become a platform that connects people across global communities, where discussions on bridging social gaps and corresponding interventions are proposed and implemented.")).toBeInTheDocument();
     // Objectives is still pending client input, so its empty state stays.
     expect(screen.getAllByText("To be announced")).toHaveLength(1);
