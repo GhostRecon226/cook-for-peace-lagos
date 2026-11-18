@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { contact, donation, event, faqs, gallery, guests, news, programme, sponsors, team, videos } from "@/config/site";
+import { contact, donation, event, faqs, gallery, guests, mission, news, objectives, programme, sponsors, team, vision, videos } from "@/config/site";
 import { whatsappChatUrl } from "@/lib/whatsapp";
 
 describe("Confirmed festival data", () => {
@@ -36,6 +36,13 @@ describe("Confirmed festival data", () => {
     }
   });
   it("keeps videos empty", () => { expect(videos).toEqual([]); });
+  it("uses the approved Mission text word for word", () => {
+    expect(mission).toBe("To promote peaceful coexistence and social development through largest engagement and fun interactions.");
+  });
+  it("uses the approved Vision text word for word", () => {
+    expect(vision).toBe("To become a platform that connects people across global communities, where discussions on bridging social gaps and corresponding interventions are proposed and implemented.");
+  });
+  it("keeps objectives empty pending client input", () => { expect(objectives).toEqual([]); });
   it("keeps announcements empty after verification", () => { expect(news).toEqual([]); });
   it("uses the confirmed WhatsApp number and message", () => {
     expect(contact.whatsapp).toBe("2348057722794");

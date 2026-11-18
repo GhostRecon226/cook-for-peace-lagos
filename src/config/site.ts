@@ -58,8 +58,8 @@ export const team: Person[] = [
     bio: "Pan-African youth advocate and community development expert. Founder of Associates of Change Africa. JCI Top Ten Outstanding Young Persons of Nigeria 2023.",
   },
 ];
-export const vision = "";
-export const mission = "";
+export const vision = "To become a platform that connects people across global communities, where discussions on bridging social gaps and corresponding interventions are proposed and implemented.";
+export const mission = "To promote peaceful coexistence and social development through largest engagement and fun interactions.";
 export const objectives: string[] = [];
 export const volunteerRoles: string[] = [];
 

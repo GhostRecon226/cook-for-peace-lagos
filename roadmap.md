@@ -25,3 +25,7 @@
 
 # Floating chat button
 - [x] Add a fixed WhatsApp chat button to the shared layout, with footer clearance, tokens and tests.
+
+# Mission and Vision
+- [x] Publish the client-approved Mission and Vision text on the About page.
+- [ ] Objectives still pending client input.

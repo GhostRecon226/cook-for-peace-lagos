@@ -54,6 +54,17 @@ describe("App routing", () => {
     expect(screen.queryByText("Our organising team will be introduced here soon.")).not.toBeInTheDocument();
   });
 
+  it("shows the approved Mission and Vision on the About page", async () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() }, history: createMemoryHistory({ initialEntries: ["/about"] }) });
+    await router.load();
+    render(<RouterProvider router={router} />);
+
+    expect(await screen.findByText("To promote peaceful coexistence and social development through largest engagement and fun interactions.")).toBeInTheDocument();
+    expect(screen.getByText("To become a platform that connects people across global communities, where discussions on bridging social gaps and corresponding interventions are proposed and implemented.")).toBeInTheDocument();
+    // Objectives is still pending client input, so its empty state stays.
+    expect(screen.getAllByText("To be announced")).toHaveLength(1);
+  });
+
   it("wraps only the three backlinked sponsor logos in sponsored links", async () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() }, history: createMemoryHistory({ initialEntries: ["/"] }) });
     await router.load();
