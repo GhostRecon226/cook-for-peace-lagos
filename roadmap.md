@@ -32,3 +32,6 @@
 
 # Social accounts
 - [x] Wire Instagram and X; other socials pending client input.
+
+# Donation details
+- [ ] Bank details wired; account ownership confirmation pending from the client.

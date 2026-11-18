@@ -22,10 +22,10 @@ describe("Confirmed festival data", () => {
       expect(sponsor.url).toBeUndefined();
     }
   });
-  it("keeps unconfirmed bank details empty", () => {
-    expect(donation.bankName).toBe("");
-    expect(donation.accountName).toBe("");
-    expect(donation.accountNumber).toBe("");
+  it("uses the exact donation bank details", () => {
+    expect(donation.bankName).toBe("Providus Bank");
+    expect(donation.accountName).toBe("Associates of change & soc. Dev");
+    expect(donation.accountNumber).toBe("4308985940");
     expect(donation.note || "").toBe("");
   });
   it("lists 12 gallery photos, each with alt text and a public/gallery src", () => {

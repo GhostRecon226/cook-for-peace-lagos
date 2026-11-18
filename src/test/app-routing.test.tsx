@@ -167,4 +167,14 @@ describe("App routing", () => {
     expect(screen.queryAllByLabelText("Facebook (coming soon)")).toHaveLength(0);
     expect(screen.queryAllByLabelText("YouTube (coming soon)")).toHaveLength(0);
   });
+  it("shows the donation bank details and copy button on Support Us", async () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() }, history: createMemoryHistory({ initialEntries: ["/support-us"] }) });
+    await router.load();
+    render(<RouterProvider router={router} />);
+    expect(await screen.findByText("Associates of change & soc. Dev")).toBeInTheDocument();
+    expect(screen.getByText("4308985940")).toBeInTheDocument();
+    expect(screen.getByText("Providus Bank")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Copy account number" })).toBeInTheDocument();
+    expect(screen.queryByText("Donation details will be shared here soon.")).not.toBeInTheDocument();
+  });
 });
